@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>HTML Builder</title>
+
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+
+
+    <link rel="stylesheet" media="screen" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css" />
+    <style type='text/css'>
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div id="wrapper">
+
+
+
+
+        <section class="tool_panel">
+            <div class="tool blocks">
+                <i class="fa fa-cube"></i>
+                <h2>Blocks</h2>
+            </div>
+            <div class="tool styles">
+                <i class="fa fa-cogs"></i>
+                <h2>Styles</h2>
+            </div>
+        </section>
+
+        <section class="expanded_pane blocks">
+            <h2 class="title"></h2>
+        </section>
+
+        <section class="expanded_pane styles">
+            <h2 class="title"></h2>
+            <div class="retrieved_styles"></div>
+            <div class="font_styles">
+                
+                <H3>Background Colour</H3>
+                
+                <div id="bg_color_selector">
+                    <div style="background-color: #ffffff">&nbsp;</div>
+                </div>
+                
+                <span id="bgremove">Remove Background</span>
+                <input id="bg_removecheckbox" type="checkbox" name="Remove_background" value="remove_bg">
+
+
+
+                <H3>Font Colour</H3>
+                <div id="font_color_selector">
+                    <div style="background-color: #0000ff">&nbsp;</div>
+                </div>
+
+                <H3>Font Size</H3>
+                <!--                <input type="text" id="font_size" disabled>-->
+                <select id="font_size">
+                    <option value="8">8px</option>
+                    <option value="10">10px</option>
+                    <option value="12">12px</option>
+                    <option value="13">13px</option>
+                    <option value="14">14px</option>
+                    <option value="16">16px</option>
+                    <option value="20">20px</option>
+                </select>
+                <div id="slider"></div>
+
+
+                <H3>Font Family</H3>
+
+                <select id="font_family">
+                    <option value="arial">Arial, Geneva, sans-serif</option>
+                    <option value="helvetica">Helvetica, sans-serif</option>
+                    <option value="Times">Times New Roman, sans-serif</option>
+                </select>
+
+                <H3>Line Height</H3>
+                <input type="text" id="line_height" disabled>
+
+                <H3>Padding</H3>
+                <input type="text" id="padding" disabled>
+
+                <div class="text_align_buttons" style="display:none;">
+                    <H3>Text align</H3>
+                    <input type="radio" name="text_alignment" value="left" style=""><span>left</span>
+                    <input type="radio" name="text_alignment" value="center"><span>center</span>
+                    <input type="radio" name="text_alignment" value="right"><span>right</span>
+                </div>
+
+                <div class="td_Valign_buttons" style="display:none;">
+                    <H3>v-align</H3>
+                    <input type="radio" name="td_vertical_alignment" value="top" style=""><span>top</span>
+                    <input type="radio" name="td_vertical_alignment" value="middle"><span>middle</span>
+                    <input type="radio" name="td_vertical_alignment" value="bottom"><span>bottom</span>
+                </div>
+
+
+            </div>
+
+
+            <div class="custom_styles">
+
+                <div class="heading">
+                    <H3>Custom CSS</H3>
+                    <i class="fa fa-arrow-down"></i>
+                </div>
+
+                <textarea class="custom_css" style="display:none;"></textarea>
+
+            </div>
+
+        </section>
+
+
+        <section class="preview_area">
+            <table width="600" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="color:#888787; line-height:18px; font-size:13px; font-family:Arial, Geneva, sans-serif; padding: 5px 10px; padding-bottom:20px; " bgcolor="#000000">
+                        yrsasf
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color:#ebebeb; font-size:20px; font-family:Helvetica, sans-serif;">
+                        yrsasf
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" font-size:20px; font-family:Helvetica, sans-serif;">
+                        yrsasf
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+
+    </div>
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="js/colorpicker.js"></script>
+<script src="js/HTML_ui.js"></script>
+
+
+</html>
+
+
+
+
+
+

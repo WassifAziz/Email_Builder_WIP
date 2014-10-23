@@ -1,0 +1,169 @@
+var allThumbs;
+var getThumbNo;
+var allTrs;
+var currentNumber;
+var currentTr;
+
+$(window).load(function() {
+
+    var allThumbs = $('#Thumbs img');
+    
+    var n = 0;
+
+    //Add new row to table in button press
+    /*$("#Target").click(function() {
+
+        n = n + 1;
+        
+        //$('#myTable tr:last').after('<tr><td>Bla</td><td><div class="remove">REMOVE</div></td></tr>');//Insert variable TR here
+
+        $('#myTable > tbody > tr:last').after('<tr><td>' + n + '<div class="remove">Remove</div></td></tr>'); //Insert variable TR here
+        //$('#myTable > tbody > tr:last').after(currentTr); //Insert variable TR here
+
+        //$('#myTable').html('<tr><td>Bla</td></tr>');//Insert variable TR here
+
+    });*/
+
+    //add 'remove' option in TR on hover  
+
+
+    //Remove row on class trigger
+    $("#myTable").on('click', '.remove', function(event) {
+
+        //$(this).parent().parent().remove();
+        $(this).parent().remove();
+
+    });
+
+
+    //Render created table
+    $("#Result").click(function() {
+
+        var table = $("#myTable").html();
+
+        $(".Result").html(table);
+
+        $('.Result .remove').remove();
+
+
+    });    
+
+    
+    //Delete part if dragged to trash can is clicked
+    /*$(function () {
+        $('#myTable > tbody > tr').draggable();
+
+        $('#Remove').droppable({
+            over: function (event, ui) {
+                $(ui.draggable).fadeOut()//.css('right','50px').hide();
+                //$('.clone').each().remove();
+            }
+        });
+    });*/
+    
+    
+    allThumbs.each(function(i) {
+        i = i + 1;
+        $(this).addClass('Thumbnail_' + i);
+    });
+
+    allThumbs.click(function(){
+
+        //split class to get the current number
+        var getThumbNo = this.className.split(/[_\ ]/g);
+
+        //get current number and log it!
+        var currentNumber = getThumbNo[1];
+
+        //Remove content HTML
+        var removeDiv = '<div class="remove">Remove</div>';
+        
+        
+        //var currentTr = allTrs.attr('class');
+
+        //console.log(currentNumber);
+
+        
+        //var currentTr = $('.tableRow_' + currentNumber).html();
+        var currentTr = $('.tableRow_' + currentNumber)[0].outerHTML;
+
+        
+        //var trForappend = $('.tableRow_' + currentNumber).html('haha');
+        
+        //var appendRemove = currentTr.append('haha');        
+        
+        //$('#myTable > tbody > tr:last').after(currentTr).append('haha');
+        
+        //$('#myTable > tbody').append(currentTr); //YES ///////////////////////////////////////////////////////////////////////// YES
+        
+        //$('#myTable > tbody').append(currentTr).prepend(removeDiv);
+        
+        //currentTr.appendTo($('#myTable > tbody'));
+        
+        //$('.tableRow_' + currentNumber).appendTo($('#myTable > tbody'));
+        
+        //$('.tableRow_' + currentNumber).appendTo($('#myTable > tbody')).append('<div class="remove">Remove</div>');
+        
+        $(currentTr).appendTo($('#myTable > tbody')).append('<div class="remove">Remove</div>');
+        
+        //$('#myTable').append(currentTr);
+        
+        //console.log(trForappend);
+        
+    });
+    
+    
+    $('#Action').on('click', function(){
+
+        console.log(currentTr);
+
+    });
+    
+    //Get current TR and transform it into a variable
+    
+    
+    $('#myTable > tbody > tr').hover(function(){
+        console.log('hello');
+        
+        var removeDiv = '<div class="remove">Remove</div>';
+        
+        //$('#myTable').append('<div class="remove">Remove</div>')
+        
+        //$(this).append(removeDiv);
+        
+        //removeDiv.appendTo($(this));
+        
+    });
+    
+    
+    
+    
+});
+
+
+//var getThumbNo;
+
+$(document).ready(function() {
+    
+    //var getThumbNo = allThumbs.className.split(/[_\ ]/g);
+    
+    console.log("ready!");
+    
+    $('#loadHere').load('rbs_FINAL.html');
+
+    $('#Thumbs img').on('click', function(){
+        $('#Thumbs img').removeClass('active');
+        $(this).addClass('active');
+    });
+    
+    
+    //var allThumbs = $('#Thumbs img');
+    
+    //buymber all images in the tools section - then link them to their respective TR inside the email template
+    
+    //var allTrs = $('.rbsTable > tbody').children('tr');
+    
+    //Get current TR and transform it into a variable
+    
+    
+});

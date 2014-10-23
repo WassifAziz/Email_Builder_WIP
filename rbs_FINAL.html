@@ -1,0 +1,975 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex" />
+    <title>RBS</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <style type="text/css">
+        table td {
+            border-collapse: collapse;
+        }
+        @media only screen and (max-width: 628px) {
+            a[href^="tel"],
+            a[href^="sms"] {
+                text-decoration: none;
+                color: black;
+                pointer-events: none;
+                cursor: default;
+            }
+            .mobile_link a[href^="tel"],
+            .mobile_link a[href^="sms"] {
+                text-decoration: default;
+                color: orange !important;
+                /* or whatever your want */
+                pointer-events: auto;
+                cursor: default;
+            }
+            body[yahoo] .rbsTable {
+                width: 320px !important;
+            }
+            body[yahoo] .db {
+                display: block !important;
+            }
+            body[yahoo] .hide {
+                display: none !important;
+            }
+            body[yahoo] .mob_img {
+                width: 100% !important;
+                height: auto !important;
+            }
+            body[yahoo] .fw {
+                width: 100% !important;
+            }
+            body[yahoo] .w90 {
+                width: 90% !important;
+                margin: 0 auto !important;
+            }
+            body[yahoo] .mbot30 {
+                margin-bottom: 30px;
+            }
+            body[yahoo] .mbot10 {
+                margin-bottom: 10px;
+            }
+            body[yahoo] .footertd_center {
+                width: 100% !important;
+                display: block;
+            }
+            body[yahoo] .half {
+                width: 48% !important;
+            }
+            body[yahoo] .third {
+                width: 38% !important;
+            }
+            body[yahoo] .twoThirds {
+                width: 60% !important;
+            }
+            body[yahoo] .fr {
+                float: right;
+            }
+            body[yahoo] .aprSpan {
+                display: block;
+                line-height: 12px;
+            }
+            body[yahoo] .creditLimit {
+                height: 40px !important;
+            }
+            body[yahoo] .pl {
+                padding: 0px 10px 0 10px !important;
+            }
+            body[yahoo] .headerBR {
+                width: 91% !important;
+                height: auto !important;
+            }
+            body[yahoo] .membershipBenefits,
+            body[yahoo] .compareAccounts {
+                text-align: center;
+                font-size: 12px !important;
+            }
+            body[yahoo] .membershipBenefits div,
+            body[yahoo] .compareAccounts div {
+                display: block;
+                margin: 0 auto;
+            }
+            .rbsBenefit {
+                float: none;
+                width: 170px;
+                margin: 0 auto;
+            }
+            .headerSpacer {
+                width: 21px !important;
+            }
+            .headerButton .rbsPrivateButton {
+                width: 134px !important;
+                height: 25px !important;
+                line-height: 25px !important;
+            }
+            .privateContact {
+                width: 265px !important;
+                margin: 0 auto;
+            }
+        }
+        /* More Specific Targeting */
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            /* You guessed it, ipad (tablets, smaller screens, etc) */
+            /* Step 1a: Repeating for the iPad */
+            a[href^="tel"],
+            a[href^="sms"] {
+                text-decoration: none;
+                color: blue;
+                /* or whatever your want */
+                pointer-events: none;
+                cursor: default;
+            }
+            .mobile_link a[href^="tel"],
+            .mobile_link a[href^="sms"] {
+                text-decoration: default;
+                color: orange !important;
+                pointer-events: auto;
+                cursor: default;
+            }
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+            /* Put your iPhone 4g styles in here */
+        }
+        /* Following Android targeting from:
+http://developer.android.com/guide/webapps/targeting.html
+http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
+        @media only screen and (-webkit-device-pixel-ratio: 0.75) {
+            /* Put CSS for low density (ldpi) Android layouts in here */
+        }
+        @media only screen and (-webkit-device-pixel-ratio: 1) {
+            /* Put CSS for medium density (mdpi) Android layouts in here */
+        }
+        @media only screen and (-webkit-device-pixel-ratio: 1.5) {
+            /* Put CSS for high density (hdpi) Android layouts in here */
+        }
+        /* end Android targeting */
+    </style>
+</head>
+
+<body yahoo="fix" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 0; min-height: 1000px; padding: 0; width: 100%;">
+    <div align="center" style="background:#e5e9ef;">
+        <!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag.-->
+        <table id="backgroundTable" cellpadding="0" cellspacing="0" border="0" width="100%" background="#e5e9ef" style="background-color: #e5e9ef; border-collapse: collapse; line-height: 100%; margin: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; width: 100%;">
+            <tr>
+                <td>
+                    <table cellpadding="0" cellspacing="0" border="0" width="620" align="center" class="rbsTable" style="background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 620px;" bgcolor="#FFFFFF">
+                        <!-- START EMAIL CONTENT-->
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top" style="color: #000001; font-family: Arial, Geneva, sans-serif; font-size: 11px; line-height: normal;">
+                                            <br />
+                                            <strong>Take a look at all the benefits your 
+                                  <!--BLACK account-->Black
+                                  <!--SELECT SILVER account-->Select Silver
+                                  <!-- SELECT PLATINUM account-->Select Platinum
+                                  account has to offer</strong>
+                                            <br />
+                                            <br />Is this email not displaying correctly? <a target="_blank" href="http://www./" style="color: #000001; text-decoration: underline;"><font color="#000001">View it in your browser</font></a>. <b>Your partial postcode: 9RD</b>
+                                            <br>Please refer to the <a href="#sec" style="color: #000001; text-decoration: underline;"><font color="#000001">Security</font></a> section in the footer of this email for information about this.
+                                            <br />
+                                            <br />
+
+
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <a href="http://www.rbs.co.uk/personal.ashx" target="_blank" style="text-decoration: none;">
+                                    <img src="img/rbsLogo.jpg" alt="RBS - Here for you" width="620" height="60" class="mob_img" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none;">
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <img src="img/rbsBlackHeader.jpg" alt="Make sure you are getting the most from your Black Account" width="620" height="188" class="mob_img" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" bgcolor="#003976" width="35">&nbsp;</td>
+                                        <td align="left" valign="top" bgcolor="#003976">
+
+
+                                            <table width="170" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td height="30" align="center">
+
+                                                        <div>
+                                                            <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/black-account.html" style="height:30px;v-text-anchor:middle;width:170px;" arcsize="9%" stroke="f" fillcolor="#34adb2"><w:anchorlock><center></center></w:anchorlock></v:roundrect><![endif]--><a href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/black-account.html" target="_blank" style="-webkit-text-size-adjust: none; background-color: #34adb2; border-bottom: 3px solid #1b768b; border-radius: 3px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 13px; line-height: 30px; text-align: center; text-decoration: none; text-shadow: 1px 1px 2px #446263; width: 170px;" class="simpleEdit">Benefits in full</a>
+                                                            
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+
+                                        </td>
+                                        <td align="right" valign="top" bgcolor="#003976" width="225">
+                                            <img src="img/rbsHeaderBR.jpg" alt="" width="225" height="76" class="headerBR" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="550" align="center" class="fw" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="left" valign="top" class="rbsContent complexEdit" style="color: #000001; font-family: Arial, Geneva, sans-serif; font-size: 13px; line-height: 18px;">Dear {Mr Personalised},
+                                                        <br>
+                                                        <br>Your Black account offers excellent value, with a range of benefits including three essential insurances, giving you great peace of mind. As you're paying a &lt;xx&gt; monthly fee, we want to ensure you are getting the most from this and to ensure your account is right for you.
+                                                        <br>
+                                                        <br>Here's a quick reminder of the great benefits that come with your account. It's worth taking a quick look to make sure you're taking advantage of them and that you aren't paying for similar benefits elsewhere. If you have any questions or want to know more about your benefits call Membership Services on <strong>0345 266 8801</strong>. If you are calling from abroad <strong>(+)44 2392 668 814</strong>.
+                                                        <br>
+                                                        <br>Your Select Silver account offers excellent value, with a range of benefits including two essential insurances, giving you great peace of mind. As you're paying a &lt;xx&gt; monthly fee, we want to ensure you are getting the most from this and to ensure your account is right for you.
+                                                        <br>
+                                                        <br>Here's a quick reminder of the great benefits that come with your account. It's worth taking a quick look to make sure you're taking advantage of them and that you aren't paying for similar benefits elsewhere. If you have any questions or want to know more about your benefits call Membership Services on <strong>0345 607 5154</strong>. If you are calling from abroad <strong>(+)44 2392 666 062</strong>.
+                                                        <br>
+                                                        <br>Your Select Platinum account offers excellent value, with a range of benefits including three essential insurances, giving you great peace of mind. As you're paying a &lt;xx&gt; monthly fee, we want to ensure you are getting the most from this and to ensure your account is right for you.
+                                                        <br>
+                                                        <br>Here's a quick reminder of the great benefits that come with your account. It's worth taking a quick look to make sure you're taking advantage of them and that you aren't paying for similar benefits elsewhere. If you have any questions or want to know more about your benefits call Membership Services on <strong>0345 609 0456</strong>. If you are calling from abroad <strong>(+)44 22932 668 827</strong>.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="565" align="center" class="rbsBenefit" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="170" align="left" valign="top" class="db mbot10">
+                                                        <a href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/select-platinum-account.html" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsPrivateBenefit1.jpg" alt="Worldwide Travel Insurance" width="170" height="90" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none;">
+                                                        </a>
+                                                    </td>
+                                                    <td width="170" align="left" valign="top" class="db mbot10">
+                                                        <a href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/select-platinum-account.html" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsPrivateBenefit2.jpg" alt="Mobile Phone Insurance" width="170" height="90" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none;">
+                                                        </a>
+                                                    </td>
+                                                    <td width="170" align="left" valign="top" class="db mbot10">
+                                                        <a href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/select-platinum-account.html" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsPrivateBenefit3.jpg" alt="Green Flag Breakdown Cover" width="170" height="90" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none;">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="565" align="center" class="rbsBenefit" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="170" align="left" valign="top" class="db mbot10">
+                                                        <a href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/black-account.html" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsBenefits1.jpg" alt="Worldwide Travel Insurance" width="170" height="190" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none;">
+                                                        </a>
+                                                    </td>
+                                                    <td width="170" align="left" valign="top" class="db mbot10">
+                                                        <a href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/black-account.html" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsBenefits2.jpg" alt="Mobile Phone Insurance" width="170" height="190" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none;">
+                                                        </a>
+                                                    </td>
+                                                    <td width="170" align="left" valign="top" class="db mbot10">
+                                                        <a href="http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/black-account.html" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsBenefits6.jpg" alt="Green Flag Breakdown Cover" width="170" height="190" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none;">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="550" align="center" class="fw" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="left" valign="top" class="rbsContent" style="color: #000001; font-family: Arial, Geneva, sans-serif; font-size: 13px; line-height: 18px;"><strong>Think you might be better off with a different kind of account?</strong>
+                                                        <br>
+                                                        <br>We have a range of current accounts, both fee-free and with a monthly fee. If you feel there might be an account that suits you better we’ve got lots of great information at <a href="http://rbs.co.uk/accounts" target="_blank" style="color: #000001; text-decoration: underline;">rbs.co.uk/accounts</a>. If you want to talk to us about this or anything else come and see us at your nearest branch.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                            <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="550" align="center" class="fw" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="left" valign="top" bgcolor="#eceaeb" width="15" height="10" style="line-height: 1px; font-size: 1px;">
+                                                        <img src="img/rbsTL.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                    </td>
+                                                    <td align="left" valign="top" bgcolor="#eceaeb" height="10" style="line-height: 1px; font-size: 1px;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" valign="top" bgcolor="#eceaeb" colspan="2">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="480" align="center" class="w90" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <td align="left" valign="middle" class="membershipBenefits db fw mbot10" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 16px; line-height: 20px;">Your Silver Platinum membership benefits</td>
+                                                            <td align="right" valign="top" class="membershipBenefits db fw" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 16px; line-height: 20px;">
+                                                                <div>
+                                                                    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://membershipbenefits.rbs.co.uk/" style="height:30px;v-text-anchor:middle;width:170px;" arcsize="9%" stroke="f" fillcolor="#34adb2"><w:anchorlock><center></center></w:anchorlock></v:roundrect><![endif]--><a href="https://membershipbenefits.rbs.co.uk/" target="_blank" style="-webkit-text-size-adjust: none; background-color: #34adb2; border-bottom: 3px solid #1b768b; border-radius: 3px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 13px; line-height: 30px; text-align: center; text-decoration: none; text-shadow: 1px 1px 2px #446263; width: 170px;">Login</a>
+                                                                    <!--[if mso]><![endif]-->
+                                                                </div>
+                                                            </td>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" bgcolor="#eceaeb" height="10" style="line-height: 1px; font-size: 1px;"></td>
+                                                    <td align="right" valign="top" bgcolor="#eceaeb" width="15" height="10" style="line-height: 1px; font-size: 1px;">
+                                                        <img src="img/rbsBR.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none; float:right">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="550" align="center" class="fw" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="left" valign="top" bgcolor="#003976" width="15" height="10" style="line-height: 1px; font-size: 1px;">
+                                                        <img src="img/rbsTLBlue.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                    </td>
+                                                    <td align="left" valign="top" bgcolor="#003976" height="10" style="line-height: 1px; font-size: 1px;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" valign="top" bgcolor="#003976" colspan="2">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="480" align="center" class="w90" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <td align="left" valign="middle" class="compareAccounts db fw mbot10" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 16px; line-height: 20px;">Compare our current accounts</td>
+                                                            <td align="right" valign="top" class="membershipBenefits db fw" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 16px; line-height: 20px;">
+                                                                <div>
+                                                                    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://rbs.co.uk/accounts" style="height:30px;v-text-anchor:middle;width:170px;" arcsize="9%" stroke="f" fillcolor="#34adb2"><w:anchorlock><center></center></w:anchorlock></v:roundrect><![endif]--><a href="http://rbs.co.uk/accounts" target="_blank" style="-webkit-text-size-adjust: none; background-color: #34adb2; border-bottom: 3px solid #1b768b; border-radius: 3px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 13px; line-height: 30px; text-align: center; text-decoration: none; text-shadow: 1px 1px 2px #446263; width: 170px;">Click here</a>
+                                                                    <!--[if mso]><![endif]-->
+                                                                </div>
+                                                            </td>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" bgcolor="#003976" height="10" style="line-height: 1px; font-size: 1px;"></td>
+                                                    <td align="right" valign="top" bgcolor="#003976" width="15" height="10" style="line-height: 1px; font-size: 1px;">
+                                                        <img src="img/rbsBRBlue.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none; float:right">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="550" align="center" class="fw" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="left" colspan="2" valign="top" bgcolor="#e8e7e6" height="10" style="line-height: 1px; font-size: 1px;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" valign="top" bgcolor="#e8e7e6" colspan="2">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="480" align="center" class="w90" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <td align="left" valign="middle" class="membershipBenefits db fw mbot10" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 16px; line-height: 20px;">Your Silver Select membership benefits</td>
+                                                            <td align="right" valign="top" class="membershipBenefits db fw" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 16px; line-height: 20px;">
+                                                                <div>
+                                                                    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://membershipbenefits.rbs.co.uk/" style="height:30px;v-text-anchor:middle;width:170px;" arcsize="3%" stroke="f" fillcolor="#34adb2"><w:anchorlock><center></center></w:anchorlock></v:roundrect><![endif]--><a href="https://membershipbenefits.rbs.co.uk/" target="_blank" class="rbsPrivateButton" style="-webkit-text-size-adjust: none; background: linear-gradient(to bottom, #a65696 0%, #83136c 100%); border-radius: 1px; color: #ffffff; display: inline-block; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a65696', endColorstr='#83136c', GradientType=0); font-family: sans-serif; font-size: 13px; line-height: 30px; text-align: center; text-decoration: none; width: 170px;">Login</a>
+                                                                    <!--[if mso]><![endif]-->
+                                                                </div>
+                                                            </td>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" colspan="2" valign="top" bgcolor="#e8e7e6" height="10" style="line-height: 1px; font-size: 1px;"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="15" height="20" align="left," valign="top" bgcolor="#401564">
+                                                        <img src="img/nwTL.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                    </td>
+                                                    <td bgcolor="#401564"></td>
+                                                    <td width="15" height="20" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                    <td bgcolor="#401564" class="repExample" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 19px; font-weight: bold; line-height: 22px;">Representative Example</td>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" height="15" align="left" valign="top" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                    <td bgcolor="#401564" align="center">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td align="left" valign="top">
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="30%" align="left" class="third mbot30 fr" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprHeaders" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">Purchase rate:
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                                                <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprRate" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 32px; height: auto; line-height: 32px;">12.9<sup style="font-size: 20px; line-height: 28px;">%</sup><span style="font-size: 11px;" class="aprSpan">APR (variable)</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="30%" align="left" class="twoThirds mbot30" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprHeaders" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">Representative APR:
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                                                <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprRate" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 32px; height: auto; line-height: 32px;">17.4<sup style="font-size: 20px; line-height: 28px;">%</sup><span style="font-size: 11px;" class="aprSpan">APR (variable)</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="23%" align="left" class="twoThirds" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprHeaders" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">Assumed credit limit:
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                                                <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprRate" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 32px; height: auto; line-height: 32px;">£1200
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="14%" align="right" class="third" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprHeaders" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">Annual fee:
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                                                <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="aprRate" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 32px; height: auto; line-height: 32px;">£24
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                    <td height="15" align="left" valign="top" bgcolor="#401564" style="border-bottom: 1px #ffffff solid;"></td>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15" height="25" bgcolor="#401564"></td>
+                                                    <td height="25" align="left" valign="bottom" bgcolor="#401564" class="aprHeaders creditLimit" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">Your actual credit limit will vary depending on our credit assessment of you</td>
+                                                    <td width="15" height="25" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td bgcolor="#401564"></td>
+                                                    <td bgcolor="#401564"></td>
+                                                    <td width="15" height="20" align="right" valign="bottom" bgcolor="#401564">
+                                                        <img src="img/nwBR.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none; float:right;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="15" height="20" align="left," valign="top" bgcolor="#401564">
+                                                        <img src="img/nwTL.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                    </td>
+                                                    <td bgcolor="#401564"></td>
+                                                    <td width="15" height="20" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                    <td bgcolor="#401564" align="center">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                            <tr>
+                                                                <td align="left" valign="top">
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="27%" align="left" class="half mbot30" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="percentage" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 37px; font-weight: bold; height: auto; line-height: 43px;">1%
+                                                                            </td>
+                                                                            <td align="left" valign="middle">
+                                                                                <img src="img/nwBasket.jpg" alt="Supermarkets" width="46" height="41" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" colspan="2" class="cbpDesc" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">at ALL supermarkets</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="23%" align="left" class="half mbot30 fr" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="percentage" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 37px; font-weight: bold; height: auto; line-height: 43px;">1%
+                                                                            </td>
+                                                                            <td align="left" valign="middle">
+                                                                                <img src="img/nwCBPlus.jpg" alt="Cashback Plus" width="45" height="35" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" colspan="2" class="cbpDesc" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">at Cashback <b>Plus</b> retailers</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="24%" align="left" class="half" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="percentage" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 37px; font-weight: bold; height: auto; line-height: 43px;">1%
+                                                                            </td>
+                                                                            <td align="left" valign="middle">
+                                                                                <img src="img/nwContactless.jpg" alt="Contactless" width="38" height="44" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" colspan="2" class="cbpDesc" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">on ALL contactless payments <span style="font-size: 12px;">until 31 December 2014</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0" border="0" width="24%" align="right" class="half" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                                        <tr>
+                                                                            <td align="left" valign="top" class="percentage" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 37px; font-weight: bold; height: auto; line-height: 43px;">0.5%
+                                                                            </td>
+                                                                            <td align="left" valign="middle">
+                                                                                <img src="img/nwBag.jpg" alt="Bag" width="36" height="42" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td align="left" valign="top" colspan="2" class="cbpDesc" style="color: #ffffff; font-family: Arial, Geneva, sans-serif; font-size: 13px;">everywhere else</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td width="15" bgcolor="#401564"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td bgcolor="#401564"></td>
+                                                    <td bgcolor="#401564"></td>
+                                                    <td width="15" height="20" align="right" valign="bottom" bgcolor="#401564">
+                                                        <img src="img/nwBR.jpg" alt="" width="10" height="10" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none; float:right;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="49%" align="left" class="fw mbot30" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="center" valign="top">
+                                                        <a href="http://www.natwest.com/personal.ashx" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsContactLaptop.jpg" alt="Just visit natwest.com" width="43" height="35" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none; margin:0 auto;">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                    <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                </td>
+                                                <tr>
+                                                    <td align="center" valign="top" class="contactRBS" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 14px; line-height: 20px;">Visit your
+                                                        <!-- BLACK account CORE start-->Black
+                                                        <!-- BLACK account CORE end-->
+                                                        <!-- SELECT SILVER account CORE start-->Select Silver
+                                                        <!-- SELECT SILVER account CORE end-->
+                                                        <!-- SELECT PLATINUM account CORE start-->Select Platinum
+                                                        <!-- SELECT PLATINUM account CORE end-->
+                                                        <br>membership benefits site
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <table cellpadding="0" cellspacing="0" border="0" width="49%" align="right" class="fw" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="center" valign="top">
+                                                        <a href="http://locator.natwest.com/" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/rbsContactPhone.jpg" alt="Find your local branch" width="43" height="35" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none; margin:0 auto;">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                    <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                </td>
+                                                <tr>
+                                                    <td align="center" valign="top" class="contactRBS" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 14px; line-height: 20px;">
+                                                        <!-- BLACK account CORE start-->Call 0345 266 8801
+                                                        <br>
+                                                        <!-- BLACK account CORE end-->
+                                                        <!-- SELECT SILVER account CORE start-->Call 0345 607 5154
+                                                        <br>
+                                                        <!-- SELECT SILVER account CORE end-->
+                                                        <!-- SELECT PLATINUM account CORE start-->Call 0345 609 0456
+                                                        <br>
+                                                        <!-- SELECT PLATINUM account CORE end-->(Minicom 0370 600 0856)
+                                                        <br>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" height="30" style="font-size: 1px; line-height:1px;">
+                                            <img src="img/spacer.gif" width="1" height="30" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="550" align="center" class="privateContact mbot30" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="left" valign="top" colspan="2" class="privateContactHeader" style="color: #003976; font-family: Arial, Geneva, sans-serif; font-size: 16px; font-style: italic; padding-bottom: 5px;">GET IN TOUCH WHENEVER YOU NEED US</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" colspan="2" class="privateContactSubheader" style="color: #58595b; font-family: Arial, Geneva, sans-serif; font-size: 14px;">We're here for you around the clock</td>
+                                                </tr>
+                                                <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                    <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                </td>
+                                                <tr>
+                                                    <td align="left" valign="top" width="285" class="db fw mbot10">
+                                                        <!-- Private Black Number Start-->
+                                                        <img src="img/rbsPrivateBlackNumber.jpg" alt="Call 0345 266 8801" width="265" height="50" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                        <!-- Private Black Number End-->
+                                                    </td>
+                                                    <td align="left" valign="top" width="265" class="db fw">
+                                                        <img src="img/rbsPrivateMinicom.jpg" alt="Minicom 0370 600 0856" width="265" height="50" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                    </td>
+                                                </tr>
+                                                <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                                    <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                </td>
+                                                <tr>
+                                                    <td align="left" valign="top" width="285" class="db fw mbot10">
+                                                        <img src="img/rbsPrivateWebsite.jpg" alt="Visit rbs.co.uk/private" width="265" height="50" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                    </td>
+                                                    <td align="left" valign="top" width="265" class="db fw">
+                                                        <img src="img/rbsPrivateBranch.jpg" alt="Speak to your Private Banking Manager" width="265" height="50" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" height="30" style="font-size: 1px; line-height:1px;">
+                                            <img src="img/spacer.gif" width="1" height="30" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="left" valign="top">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td width="30%" align="center" valign="top" class="footertd_center mbot30">
+                                                        <a href="http://www.natwest.com/personal.ashx" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/NW_loans_6.gif" alt="Just visit natwest.com" width="80" height="78" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none; margin:0 auto;">
+                                                        </a>
+                                                    </td>
+                                                    <td width="35%" align="center" valign="top" class="footertd_center mbot30">
+                                                        <img src="img/NW_loans_7.gif" alt="Call 0800 148 8326" width="135" height="78" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none; margin:0 auto;">
+                                                    </td>
+                                                    <td width="35%" align="center" valign="top" class="footertd_center">
+                                                        <a href="http://locator.natwest.com/" target="_blank" style="text-decoration: none;">
+                                                            <img src="img/NW_loans_8.gif" alt="Find your local branch" width="135" height="78" style="-ms-interpolation-mode: bicubic; border: none; display: block; outline: none; text-decoration: none; margin:0 auto;">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" height="30" style="font-size: 1px; line-height:1px;">
+                                            <img src="img/spacer.gif" width="1" height="30" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="left" valign="top" bgcolor="#E5E9EF">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                            <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                        <td align="left" valign="top">
+                                            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                <tr>
+                                                    <td align="left" style="font-family: Arial, Geneva, sans-serif; font-size: 10px; color: #003976; line-height: normal;" class="table">
+                                                        <a name="sec" style="text-decoration: none;"></a><b>About this Email</b>
+                                                        <br>
+                                                        <br>This email is confidential and intended for the addressee only. Please delete if that is not you.
+                                                        <br>
+                                                        <br>Marketing messages keep you informed of preferential benefits and offers. If you no longer want to receive this type of message by email <a target="_blank" style="color: #003976; text-decoration: underline; text-underline: single;" href="#">click here</a>. You'll continue to receive important information about your account.
+                                                        <br>
+                                                        <br>Please do not reply to this email as the address is not monitored. Visit our <a target="_blank" style="color: #003976; text-decoration: underline; text-underline: single;" href="http://www.rbs.co.uk/global/support-centre.ashx?channel=personal">Support Centre</a> if you have any queries and we'll be happy to help.
+                                                        <br>
+                                                        <br><b>Important Security Information</b>
+                                                        <br>
+                                                        <br>To help you identify our email and as an extra security measure the second half of your postcode is shown at the top. If you have not provided us with this information or you have changed address please contact your local branch to update your details.
+                                                        <br>
+                                                        <br>RBS will <b>NEVER</b> ask for your full PIN or Password when identifying you on the phone or online, and will <b>NEVER</b> ask for Card Reader codes on the phone or when logging in.
+                                                        <br>
+                                                        <br>Fraudsters may claim to be the bank to try and access security information. If you receive a call or email from NatWest that you are suspicious about, cease the call immediately, or forward the email to <a style="color: #003976; text-decoration: underline; text-underline: single;" href="mailto:phishing@rbs.co.uk">phishing@rbs.co.uk</a>. Visit <a target="_blank" style="color: #003976; text-decoration: underline; text-underline: single;" href="http://www.rbs.co.uk/global/security.ashx?channel=personal"> rbs.co.uk/security</a> for more information and advice.
+                                                        <br>
+                                                        <br><b>
+                                  The Royal Bank of Scotland plc. Registered in Scotland No 90312.
+                                  Registered Office:<span style="text-decoration: none;">36 St Andrew Square, Edinburgh, EH2 2YB</span>.</b>
+                                                        <br>
+                                                        <br><b>Authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority</b>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="left" valign="top" width="3%">
+                                            <img src="img/spacer.gif" width="20" height="1" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                                            <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+
+
+    <script>
+        var tableStyle = $('style');
+
+        var allTrs = $('.rbsTable > tbody').children('tr');
+
+         //allTrs[4];
+
+        allTrs.each(function(i) {
+
+            i = i + 1;
+
+            $(this).addClass('tableRow_' + i);
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+@import "elements.less";
+@import "normalize.css";
+
+
+
+@menucolour: #3D423C;
+@popoutcolour: #A44F58;
+@bodybg: #EDEDED;
+@expandedpane: #E0E0E0;
+@previewpane: #A7A7A7;
+
+
+body{
+    background-color: @bodybg;
+    height: 100%;
+}
+
+#wrapper {
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    left:0; 
+    right:0;
+    background-color: @previewpane;
+}
+
+button{
+    padding:10px 20px;
+}
+
+.clear{
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+h1,h2,h3{
+    font-weight: normal;
+}
+h1{
+    font-size:30px; 
+    font-weight: normal;  
+}
+
+h2{
+    font-size:16px; 
+    font-weight: normal; 
+    margin-top:0px;
+}
+
+
+/*New styles*/
+
+
+
+
+
+.tool_panel{
+    
+    max-width:100px; 
+    width:100%;
+    height: 100%;
+    background-color: #3D423C;
+    color: #fff;
+    float: left;
+     
+    
+    .tool{ 
+        max-width:50px;
+        width:100%;
+        text-align: center; 
+        margin:20px auto; 
+        
+        .fa{
+            font-size:30px; 
+            margin: 10px 0px;
+        }
+        
+    }
+}
+
+.expanded_pane{
+    float: left;
+    max-width: 250px;
+    width:100%;
+    background-color: @expandedpane;
+    color: #FFF;
+    height: 100%;
+    display:none;
+    padding:20px;
+    box-sizing: border-box;
+    
+    h2.title{
+        text-align: center;
+        margin-top:20px;
+        color: #000000;
+    }
+    
+    &.styles{
+        color: #000000;
+    }
+}
+
+.preview_area{
+    background-color: @previewpane;
+    width: 100%;
+    height: 100%;
+    
+    table{
+        margin: 0 auto;
+        color:#ffffff;
+    }
+
+}
+
+
+.expanded_pane{
+    
+    .font_styles{
+        
+        input,select{
+            width:100%
+        }
+        
+        h3{
+            color:  #000000!important;
+            margin-bottom:5px;
+            font-size:12px;
+        }
+        
+        span{
+            font-size:14px;
+        }
+        
+        input[type="radio"] {
+            display: inline;
+            width: auto;
+        }
+        
+    }
+    
+    .custom_styles{
+        h3{
+            display: inline-block;
+            margin:10px 0px;
+        }
+        i{
+            margin-left:10px;
+        }
+        textarea{
+            display: inline-block;
+            width: 100%;
+            min-height: 200px;
+            margin: 0px;
+        }
+    }
+    
+}
+
+.outline_td {
+    outline: 2px dotted #99ccff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Old Styles*/
+
+
+
+#Remove{
+    width:100px;
+    height: 100px;
+    background: #848484;
+    position: fixed;
+    top:40%;
+    right:0px;
+    display: none;
+}
+
+#Tools{
+    float:left;
+    width:50%;
+    padding:40px;
+    box-sizing: border-box;
+    #Thumbs{
+        margin-top:35px;
+        border: solid 1px #666;
+        max-width:50%;
+        padding:20px;
+        img{
+            width:100%;
+            height:auto;
+            border:1px solid #eee;
+            margin-bottom:15px;
+            cursor: pointer;
+        }
+        .active{
+            border-color: #616dfa;
+        }
+    }
+}
+
+#Render{
+    float:right;
+    width:50%;
+    background: #fff;
+    padding:40px;
+    box-sizing: border-box;
+    #Compose{
+        margin-bottom:20px;
+    }
+    #myTable{
+        tr{
+            /*position:relative;*/
+            /*min-height: 100px;*/
+            /*display: block;*/
+        }
+        .spacer_tr{
+            /*.remove{
+                display: none;
+            }*/
+            border:1px solid #eee;
+        }
+        .remove {
+            color: red;
+            font-weight: bold;
+            display: block;
+            position: relative;
+            right:0px;
+            top:0px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+#loadHere{
+    width:700px;
+    height:1500px;
+    overflow: hidden;
+    /*display: none;*/
+}
+
+
+#spacerTr{
+    display: none;
+    height: 0px;
+}
+
+#outputimages{
+    /*width:500px;*/
+}
+
+.editorTest{
+    width:60%;
+    box-sizing: border-box;
+    border:1px solid #666;
+    margin:20px auto;
+    min-height: 50px;
+    padding: 50px;
+    /*display: none;*/
+}
+
+/*imported table styles*/
+/*table {
+    border: solid black 1px;
+    width:700px;
+    margin:0 auto;
+}*/
+
+#target {
+    width: 50px;
+    border: solid red 2px;
+}
+
+.remove {
+    color: red;
+    font-weight: bold;
+}
+
+.result {
+    border: solid red 2px;
+}
+
+
+
+.hide{
+    display: none;
+}
+
+
+
+

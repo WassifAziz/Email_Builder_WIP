@@ -1,0 +1,150 @@
+@import "normalize.css";
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------*/
+body {
+  background-color: #ffffff;
+}
+#wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+button {
+  padding: 10px 20px;
+}
+.clear {
+  display: block;
+  width: 100%;
+  clear: both;
+}
+/*New styles*/
+#Remove {
+  width: 100px;
+  height: 100px;
+  background: #848484;
+  position: fixed;
+  top: 40%;
+  right: 0px;
+  display: none;
+}
+#Tools {
+  float: left;
+  width: 50%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+#Tools #Thumbs {
+  margin-top: 35px;
+  border: solid 1px #666;
+  max-width: 50%;
+  padding: 20px;
+}
+#Tools #Thumbs img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+#Tools #Thumbs .active {
+  border-color: #616dfa;
+}
+#Render {
+  float: right;
+  width: 50%;
+  background: #fff;
+  padding: 40px;
+  box-sizing: border-box;
+}
+#Render #Compose {
+  margin-bottom: 20px;
+}
+#Render #Compose .activeLink {
+  -webkit-box-shadow: 0px 1px 24px 0px rgba(9, 225, 0, 0.75);
+  -moz-box-shadow: 0px 1px 24px 0px rgba(9, 225, 0, 0.75);
+  box-shadow: 0px 1px 24px 0px rgba(9, 225, 0, 0.75);
+}
+#Render #myTable tr {
+  /*position:relative;*/
+  /*min-height: 100px;*/
+  /*display: block;*/
+}
+#Render #myTable .spacer_tr {
+  /*.remove{
+                display: none;
+            }*/
+  border: 1px solid #eee;
+}
+#Render #myTable .remove {
+  color: red;
+  font-weight: bold;
+  display: block;
+  position: relative;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+#loadHere {
+  width: 700px;
+  height: 1500px;
+  overflow: hidden;
+  /*display: none;*/
+}
+#spacerTr {
+  display: none;
+  height: 0px;
+}
+#outputimages {
+  /*width:500px;*/
+}
+.editorTest {
+  width: 60%;
+  box-sizing: border-box;
+  border: 1px solid #666;
+  margin: 20px auto;
+  min-height: 50px;
+  padding: 50px;
+  /*display: none;*/
+}
+/*imported table styles*/
+/*table {
+    border: solid black 1px;
+    width:700px;
+    margin:0 auto;
+}*/
+#target {
+  width: 50px;
+  border: solid red 2px;
+}
+.remove {
+  color: red;
+  font-weight: bold;
+}
+.result {
+  border: solid red 2px;
+}
+.hide {
+  display: none;
+}
+/*Multiple Select classes*/
+.ms-parent {
+  display: block!important;
+  width: 50%!important;
+  margin-top: 25px!important;
+}
+.ms-parent .ms-choice {
+  width: 100%;
+}
+#linkEditor {
+  margin-top: 25px;
+}
+#linkEditor input,
+#linkEditor button {
+  display: block;
+  clear: both;
+  margin-bottom: 15px;
+}
+/*Old Styles*/

@@ -1,0 +1,220 @@
+var allThumbs;
+var getThumbNo;
+var allTrs;
+var currentNumber;
+var currentTr;
+var linkTXT;
+var linkURL;
+
+$(window).load(function() {
+
+    var allThumbs = $('#Thumbs img');
+
+    var n = 0;
+
+    //Remove row on class trigger
+    $("#myTable").on('click', '.remove', function(event) {
+
+        //$(this).parent().parent().remove();
+        $(this).parent().remove();
+
+    });
+
+
+    allThumbs.each(function(i) {
+        i = i + 1;
+        $(this).addClass('Thumbnail_' + i);
+    });
+
+    allThumbs.click(function() {
+
+        //split class name to get the current number
+        var getThumbNo = this.className.split(/[_\ ]/g);
+
+        //get current number and log it!
+        var currentNumber = getThumbNo[1];
+
+        //Remove content HTML
+        var removeDiv = '<div class="remove">X</div>';
+
+        //console.log(currentNumber);
+
+        //var currentTr = $('.tableRow_' + currentNumber).html();
+        //var currentTr = $('.tableRow_' + currentNumber)[0].outerHTML;
+        var currentTr = $('.rbsTable .tableRow_' + currentNumber)[0].outerHTML;
+
+        $(currentTr).clone().appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+
+        //disable all links in build table
+        $('#myTable a').click(function(e) {
+            e.preventDefault();
+            //do other stuff when a click happens
+        });
+
+    });
+
+
+    $('#addSpace').on('click', function() {
+
+        var spacerTr = $('#spacerTr > tbody').html();
+        $(spacerTr).appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+
+    });
+
+
+    //Render created table
+    $("#Result").click(function() {
+
+        //Sort composed table in variable
+        var table = $("#myTable").html();
+
+        console.log(table);
+
+        //Output HTMl in container
+        $(".Result").html(table);
+
+        //Remove unwanted elements
+        $('.Result .remove').remove();
+
+    });
+
+
+
+    jQuery(function($) {
+
+        $('#myTable').bind("DOMSubtreeModified", function() {
+
+            // REST OF THE CODE HERE
+
+
+
+            //complexEdit: Complex editor needed (wysywig)
+            //simpleEdit: Simple editor needed (jeditable)
+
+            //Apply WSYSYWIG Editor to Tr's with text on click
+            /*$('#Render [class^="tableRow"] td table tr td:first-child+td').on('click', function() {*/
+            $('.complexEdit').on('click', function() {
+                if (!$(this).text().trim().length) {
+                    console.log('no text');
+                } else {
+                    console.log('has text');
+                    $(this).addClass('editable');
+                    $("#myTable > tbody").sortable("disable");
+
+                    $('.editable').editable({
+                        inlineMode: false,
+                        beautifyCode: true,
+                        paragraphy: false
+                    })
+
+                    $("#closeEditor, .remove").click(function() {
+
+                        $('.editable').editable("destroy");
+
+                        $('td').removeClass('editable');
+                        $("#myTable > tbody").sortable("enable");
+
+                    });
+                }
+
+            });
+
+
+            $('.simpleEdit').on('click', function() {
+
+                if (!$(this).text().trim().length) {
+                    //console.log('link simpleEdit no text');
+                } else {
+                    //console.log('link simpleEdit has text');
+                    jQuery('#linkEditor input[type="text"]').on('change', function() {
+                        // do your stuff
+                        var linkTXT = $('.linkTXT').val();
+                        var linkURL = $('.linkURL').val();
+
+                        $('#linkEditor .linkUpdate').on('click', function(e) {
+
+                            if (linkTXT != '' && linkURL != '') {
+                                console.log(linkTXT);
+                                //e.stopPropagation();
+                                $('.activeLink').text(linkTXT);
+                                $('.activeLink').attr('href', linkURL);
+                                
+                                //Target MSO comment
+                                $(".linkDiv").contents().filter(
+                                    function(){
+                                        return this.nodeType == 8;
+                                    }).each(function(i, e){
+                                    $(this)[0].data = replaceHrefWithNew($(this)[0].data,linkURL);           
+                                    //console.log(e.nodeValue);                
+                                });
+
+                                function replaceHrefWithNew(myMso,newHrefValue)
+                                {
+                                    var indexOfStartHref=myMso.indexOf("href")+6;
+                                    var indexOfEndHref=myMso.indexOf("\"",indexOfStartHref);
+
+                                    var part1=myMso.substring(0,indexOfStartHref);
+                                    var part2=myMso.substring(indexOfStartHref,indexOfEndHref);
+                                    var part3=myMso.substring(indexOfEndHref);
+
+                                    var newMso= part1 + newHrefValue + part3;
+                                    //console.log(newMso);
+
+                                    return newMso;
+                                }  
+                                
+                            } else {
+                                //alert('please insert links AND copy at the same time');
+                                //$('.linkTXT').val('please insert valid text').css('color','red');
+                            }
+
+                        });
+
+
+                    });
+
+
+                    $(this).addClass('activeLink');
+                    $(this).parent('div').addClass('linkDiv');
+                    
+                    $("#myTable > tbody").sortable("disable");
+                    $('#linkEditor').show();
+
+                    $("#closeEditor").click(function() {
+                        $('.activeLink').removeClass('activeLink');
+                        $("#myTable > tbody").sortable("enable");
+                    });
+                }
+            });
+
+
+        });
+
+    });
+
+    //Add classes from dropdown
+    $('.ms-drop input').on('change', function() {
+        $('.editable').toggleClass($(this).val());
+        //$('.editable').html($('.editable').attr('class'));
+    });
+
+}); //END LOAD FUNCTION
+
+
+
+
+$(document).ready(function() {
+
+    //var getThumbNo = allThumbs.className.split(/[_\ ]/g);
+
+    console.log("ready!");
+
+    $('#loadHere').load('rbs_FINAL.html');
+
+    $('#Thumbs img').on('click', function() {
+        $('#Thumbs img').removeClass('active');
+        $(this).addClass('active');
+    });
+
+
+}); //DOCUMENT READY END

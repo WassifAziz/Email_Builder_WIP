@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>HTML Builder</title>
+
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/multiple-select.css">
+    <link rel="stylesheet" type="text/css" href="css/froala_page.css">
+    <link rel="stylesheet" type="text/css" href="css/froala_editor.css">
+
+    <style type='text/css'>
+        .body {
+            background: #666!important;
+            background-color: #666!important;
+        }
+        .sortable {
+            height: 300px;
+            background: #ccc;
+            overflow: auto;
+        }
+        .toggle {
+            background: green;
+            margin: 3px 0 0 0;
+        }
+        #droparea {
+            float: right;
+            background: white;
+            min-height: 440px;
+        }
+        #draggable {
+            float: left;
+        }
+        <!--inline edit css--> .ui-state-hover {
+            background-color: #ffc
+        }
+        .inlineEdit-placeholder {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div id="wrapper">
+
+
+        <div id="Remove"></div>
+
+
+
+        <section id="Tools">
+
+            <button id="Action">Test HTML</button>
+
+            <button id="Target">Add</button>
+
+            <button id="Result">Result me</button>
+
+            <button id="addSpace">Add Spacer table</button>
+
+            <button id="closeEditor">Close Editor</button>
+
+            <!--<div class="editorTest"></div>-->
+
+            <select multiple="multiple" id="select_class">
+                <!--<option value="WF">full width</option>
+                <option value="hide">hide</option>-->
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            
+            
+            <form id="linkEditor">
+            
+                <input class="linkTXT" type="text" name="Link Text" size="25" placeholder="Insert link text">
+                <input class="linkURL" type="text" name="Link URL" size="25" placeholder="Insert link URL">
+                <input class="linkUpdate" type="button" name="button" value="Update link">
+                
+                <input class="Done" type="button" name="button" value="Done">
+            
+            </form>
+            
+
+            <div id="Thumbs">
+
+                <!--Thumbnail images used in the builder-->
+                <img src="thumbnails/nw_rbs_thumbs01.gif" title="message" />
+                <img src="thumbnails/nw_rbs_thumbs02.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs03.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs04.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs05.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs06.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs07.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs08.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs09.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs10.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs11.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs12.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs13.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs14.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs15.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs16.gif" title="header" />
+                <img src="thumbnails/nw_rbs_thumbs17.gif" title="header" />
+
+            </div>
+
+
+        </section>
+
+
+
+        <section id="Render">
+
+            <div id="Compose">
+
+                <table cellpadding="0" cellspacing="0" border="0" width="620" align="center" style="background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 620px;" bgcolor="#FFFFFF" id="myTable">
+                    <tbody></tbody>
+                </table>
+
+            </div>
+
+
+
+            <div id="Final">
+
+                <table class="Result"></table>
+
+            </div>
+
+
+        </section>
+
+
+
+        <div class="clear"></div>
+        <!--Load email mothership-->
+        <section id="loadHere" style="height:0px;"></section>
+
+
+        <table id="spacerTr">
+            <tr class="spacer_tr">
+                <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
+                    <img src="img/spacer.gif" width="1" height="15" style="-ms-interpolation-mode: bicubic; display: block; outline: none; text-decoration: none;">
+                </td>
+            </tr>
+        </table>
+
+        <section id="outputimages"></section>
+
+    </div>
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<!--    <script type="text/javascript" src="js/jquery.inlineedit.js"></script>-->
+
+<script type="text/javascript" src="js/froala_editor.min.js"></script>
+    
+<!--<script type="text/javascript" src="js/jeditable.js"></script>-->
+
+<script type="text/javascript" src="js/jquery.multiple.select.js"></script>
+
+<script>
+    $('#myTable > tbody').sortable();
+
+    $('#select_class').multipleSelect({
+        placeholder: "Please select Classes",
+        selectAll: false
+    });
+</script>
+
+<script type="text/javascript" src="js/builder2.js"></script>
+
+</html>
+
+
+
+
+
+
