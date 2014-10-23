@@ -85,14 +85,10 @@ $(window).load(function() {
         $('#myTable').bind("DOMSubtreeModified", function() {
 
             // REST OF THE CODE HERE
-
-
-
             //complexEdit: Complex editor needed (wysywig)
             //simpleEdit: Simple editor needed (jeditable)
 
             //Apply WSYSYWIG Editor to Tr's with text on click
-            /*$('#Render [class^="tableRow"] td table tr td:first-child+td').on('click', function() {*/
             $('.complexEdit').on('click', function() {
                 if (!$(this).text().trim().length) {
                     console.log('no text');
@@ -118,7 +114,6 @@ $(window).load(function() {
                 }
 
             });
-
 
             $('.simpleEdit').on('click', function() {
 
@@ -186,7 +181,6 @@ $(window).load(function() {
                     });
                 }
             });
-
 
         });
 

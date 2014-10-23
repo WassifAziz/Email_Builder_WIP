@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="css/froala_page.css">
     <link rel="stylesheet" type="text/css" href="css/froala_editor.css">
 
+
+    <link rel="stylesheet" type="text/css" href="css/ui_styles.css">
+    <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+
+
     <style type='text/css'>
         .body {
             background: #666!important;
@@ -52,48 +57,23 @@
     <div id="wrapper">
 
 
-        <div id="Remove"></div>
+        <section class="tool_panel">
+            <div class="tool blocks">
+                <i class="fa fa-cube"></i>
+                <h2>Blocks</h2>
+            </div>
+            <div class="tool styles">
+                <i class="fa fa-cogs"></i>
+                <h2>Styles</h2>
+            </div>
+            <div class="tool text">
+                <i class="fa fa-font"></i>
+                <h2>Text Editor</h2>
+            </div>
+        </section>
 
-
-
-        <section id="Tools">
-
-            <button id="Action">Test HTML</button>
-
-            <button id="Target">Add</button>
-
-            <button id="Result">Result me</button>
-
-            <button id="addSpace">Add Spacer table</button>
-
-            <button id="closeEditor">Close Editor</button>
-
-            <!--<div class="editorTest"></div>-->
-
-            <select multiple="multiple" id="select_class">
-                <!--<option value="WF">full width</option>
-                <option value="hide">hide</option>-->
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-            </select>
-            
-            
-            <form id="linkEditor">
-            
-                <input class="linkTXT" type="text" name="Link Text" size="25" placeholder="Insert link text">
-                <input class="linkURL" type="text" name="Link URL" size="25" placeholder="Insert link URL">
-                <input class="linkUpdate" type="button" name="button" value="Update link">
-                
-                <input class="Done" type="button" name="button" value="Done">
-            
-            </form>
-            
+        <section class="expanded_pane blocks" style="display:block;">
+            <h2 class="title"></h2>
 
             <div id="Thumbs">
 
@@ -117,6 +97,144 @@
                 <img src="thumbnails/nw_rbs_thumbs17.gif" title="header" />
 
             </div>
+
+        </section>
+
+        <section class="expanded_pane styles">
+            <h2 class="title"></h2>
+            <div class="retrieved_styles"></div>
+            <div class="font_styles">
+
+                <H3>Background Colour</H3>
+
+                <div id="bg_color_selector">
+                    <div style="background-color: #ffffff">&nbsp;</div>
+                </div>
+
+                <span id="bgremove">Remove Background</span>
+                <input id="bg_removecheckbox" type="checkbox" name="Remove_background" value="remove_bg">
+
+
+
+                <H3>Font Colour</H3>
+                <div id="font_color_selector">
+                    <div style="background-color: #0000ff">&nbsp;</div>
+                </div>
+
+                <H3>Font Size</H3>
+                <!--                <input type="text" id="font_size" disabled>-->
+                <select id="font_size">
+                    <option value="8">8px</option>
+                    <option value="10">10px</option>
+                    <option value="12">12px</option>
+                    <option value="13">13px</option>
+                    <option value="14">14px</option>
+                    <option value="16">16px</option>
+                    <option value="20">20px</option>
+                </select>
+                <div id="slider"></div>
+
+
+                <H3>Font Family</H3>
+
+                <select id="font_family">
+                    <option value="arial">Arial, Geneva, sans-serif</option>
+                    <option value="helvetica">Helvetica, sans-serif</option>
+                    <option value="Times">Times New Roman, sans-serif</option>
+                </select>
+
+                <H3>Line Height</H3>
+                <input type="text" id="line_height" disabled>
+
+                <H3>Padding</H3>
+                <input type="text" id="padding" disabled>
+
+                <div class="text_align_buttons" style="display:none;">
+                    <H3>Text align</H3>
+                    <input type="radio" name="text_alignment" value="left" style=""><span>left</span>
+                    <input type="radio" name="text_alignment" value="center"><span>center</span>
+                    <input type="radio" name="text_alignment" value="right"><span>right</span>
+                </div>
+
+                <div class="td_Valign_buttons" style="display:none;">
+                    <H3>v-align</H3>
+                    <input type="radio" name="td_vertical_alignment" value="top" style=""><span>top</span>
+                    <input type="radio" name="td_vertical_alignment" value="middle"><span>middle</span>
+                    <input type="radio" name="td_vertical_alignment" value="bottom"><span>bottom</span>
+                </div>
+
+
+            </div>
+
+
+            <div class="custom_styles">
+
+                <div class="heading">
+                    <H3>Custom CSS</H3>
+                    <i class="fa fa-arrow-down"></i>
+                </div>
+
+                <textarea class="custom_css" style="display:none;"></textarea>
+
+            </div>
+
+        </section>
+
+        <section class="expanded_pane text">
+            <h2 class="title"></h2>
+
+
+
+        </section>
+
+        <div id="Remove"></div>
+
+
+
+        <section id="Tools">
+
+            <button id="Action">Test HTML</button>
+
+            <button id="Target">Add</button>
+
+            <button id="Result">Result me</button>
+
+            <button id="addSpace">Add Spacer table</button>
+
+            <button id="closeEditor">Close Editor</button>
+
+            <div id="trigger" style="width:20px";>
+                Show blocking element
+            </div>
+            
+            <!--<div class="editorTest"></div>-->
+
+            <select multiple="multiple" id="select_class">
+                <!--<option value="WF">full width</option>
+                <option value="hide">hide</option>-->
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+
+
+            <form id="linkEditor">
+
+                <input class="linkTXT" type="text" name="Link Text" size="25" placeholder="Insert link text">
+                <input class="linkURL" type="text" name="Link URL" size="25" placeholder="Insert link URL">
+                <input class="linkUpdate" type="button" name="button" value="Update link">
+
+                <input class="Done" type="button" name="button" value="Done">
+
+            </form>
+
+
+
 
 
         </section>
@@ -169,7 +287,7 @@
 <!--    <script type="text/javascript" src="js/jquery.inlineedit.js"></script>-->
 
 <script type="text/javascript" src="js/froala_editor.min.js"></script>
-    
+
 <!--<script type="text/javascript" src="js/jeditable.js"></script>-->
 
 <script type="text/javascript" src="js/jquery.multiple.select.js"></script>
@@ -183,8 +301,17 @@
     });
 </script>
 
+<!--<script src="js/jquery-watch.js" type="text/javascript"></script>-->
+
+    <script src="js/HTML_ui.js"></script>
+    
 <script type="text/javascript" src="js/builder2.js"></script>
 
+<script type="text/javascript" src="js/colorpicker.js"></script>
+
+
+
+    
 </html>
 
 
