@@ -78,6 +78,9 @@ $(window).load(function() {
 
     });
 
+    
+    
+    
 
 
     jQuery(function($) {
@@ -185,6 +188,12 @@ $(window).load(function() {
         });
 
     });
+    
+    
+
+    
+    
+    
 
     //Add classes from dropdown
     $('.ms-drop input').on('change', function() {

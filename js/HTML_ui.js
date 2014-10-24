@@ -317,43 +317,226 @@ $(document).ready(function() {
     
     //OBSERVER (Beta)
     
-    // myTable is the element (empty table in compose) that has a changing display value
-    var myTable  = document.querySelector( '#Compose' );
-    // Trigger changes the display value of myTable
-    var trigger  = document.querySelector( '#trigger' );
-    // Our mutation observer, which we attach to blocker later
-    var observer = new MutationObserver( function( mutations ){
-        mutations.forEach( function( mutation ){
-            // Was it the style attribute that changed? (Maybe a classname or other attribute change could do this too? You might want to remove the attribute condition) Is display set to 'none'?
-            if( mutation.attributeName === 'name' && window.getComputedStyle( myTable ).getPropertyValue( 'display' ) !== 'none'
-              ){
-                alert( '#blocker\'s style just changed, and its display value is no longer \'none\'' );
+
+
+
+    
+    var list = document.getElementById("myTable");
+
+    var MutationObserver = window.MutationObserver ||
+        window.WebKitMutationObserver || 
+        window.MozMutationObserver;
+
+    var observer = new MutationObserver(function(mutations) {  
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+               
+                /*$('td').on('click', function(){
+                    console.log("mutation!");
+                });*/
+                
+                $(".complexEdit").click(function () {
+
+                    console.log('td clicked');
+
+                    //enable all inputs and radio buttons
+                    $('input[type="text"]').prop('disabled', false);
+                    $(".text_align_buttons").css("display", "block");
+                    $(".td_Valign_buttons").css("display", "block");
+
+
+                    //add class. the edit styles input targets this class
+                    $('td').removeClass("targeted_styles_for_edit");
+                    $(this).addClass("targeted_styles_for_edit");
+
+                    //clear any areas populated with dynamic content
+                    $('#font_color, #font_size, #font_family, #line_height, #padding').val('');
+
+                    //retrieve inline styles from clicked td and covert to HTML
+                    retrieved_styles = $(this).attr('style'); 
+                    //        $(".expanded_pane > .retrieved_styles").html(retrieved_styles);
+
+
+                    //split by colon
+                    //        var styles_array = ["color: #888787", " font-family: Arial, Geneva, sans-serif", " font-size: 13px", " line-height: 18px", ""]
+                    styles_array = retrieved_styles
+                    styles_array = styles_array.split(';');
+
+                    //remove empty arrays
+                    var newArray = [];
+                    for (var i = 0; i < styles_array.length; i++) {
+                        if (styles_array[i] !== "" && styles_array[i] !== " ") {
+                            newArray.push(styles_array[i]);
+                        }
+                    }
+                    styles_array = newArray;
+
+                    //remove white space from start and end of array elements
+                    styles_array = $(styles_array).map(String.prototype.trim);
+
+                    //split array into two, one for styles and one for value
+                    var array1 = [], array2 = [], array3 = [];
+
+                    for(var i=0; i<styles_array.length; i++){
+                        array1[i] = styles_array[i].split(":")[0];
+                        array2[i] = styles_array[i].split(":")[1];
+                    }
+
+                    //match color in array and output to sidepanel
+                    for(var i=0; i< array1 .length; i++) {
+                        if(array1[i] === "color") {
+                            var font_color = array2[i]
+                            font_color = font_color.toString();
+                            $('.font_styles > #font_color').val(font_color);
+                            $('#font_color_selector div').css('backgroundColor', '#' + font_color);
+                        }
+                    }
+
+                    //match font-size in array and output to sidepanel
+                    for(var i=0; i< array1 .length; i++) {
+                        if(array1[i] === "font-size") {
+                            var font_size = array2[i]
+                            font_size = font_size.toString();
+                            $("select#font_size option:contains(" + array2[i] + ")").attr('selected', true);
+                        }
+                    }
+
+                    //match font-family in array and output to sidepanel
+                    for(var i=0; i< array1 .length; i++) {
+                        if(array1[i] === "font-family") {
+                            var font_family = array2[i]
+                            font_family = font_family.toString();
+                            $("select#font_family option:contains(" + array2[i] + ")").attr('selected', true);
+                        }
+                    }
+
+                    //match line-height in array and output to sidepanel
+                    for(var i=0; i< array1 .length; i++) {
+                        if(array1[i] === "line-height") {
+                            var line_height = array2[i]
+                            line_height = line_height.toString();
+                            $('.font_styles > #line_height').val(line_height)
+                        }
+                    }
+
+                    //match padding in array and output to sidepanel
+                    for(var i=0; i< array1 .length; i++) {
+                        if(array1[i] === "padding") {
+                            var padding = array2[i]
+                            padding = padding.toString();
+                            $('.font_styles > #padding').val(padding)
+                        }
+                    }
+
+                    //match bgcolour in array and output to sidepanel
+                    //        for(var i=0; i< array1 .length; i++) {
+                    //            if(array1[i] === "background-color") {
+                    //                var bg_color = array2[i]
+                    //                bg_color = bg_color.toString();
+                    //                $('#bg_color_selector div').css('backgroundColor', '#' + bg_color);
+                    //                $('#bg_color_selector div').html("&nbsp");
+                    //            }
+                    //            else {
+                    //                $('#bg_color_selector div').css('backgroundColor', '#ffffff');
+                    //                $('#bg_color_selector div').text('no background defined');
+                    //            }
+                    //        }
+
+
+                    //add text to colour selector if no background defined
+                    if ($('.targeted_styles_for_edit').attr('bgcolor')) {
+                        var bgcolor = $(this).attr("bgcolor");
+                        $('#bg_color_selector div').html("&nbsp");
+                        $('#bg_color_selector div').css('backgroundColor', '#' + bgcolor);
+                    } else {
+                        $('#bg_color_selector div').text('no background defined');+
+                            $('#bg_color_selector div').css('backgroundColor', '#FFFFFF' );
+                    }
+
+
+
+                    //retrieve the inline CSS from clicked TD and add to textarea under custom styles
+                    custom_styles =  retrieved_styles;
+                    $(".custom_css").text(custom_styles);
+
+
+                    //detect any text input change on custom css textarea and updated styles accordingly
+                    $(".custom_css").bind('input propertychange', function(){
+                        var custom_css = $(this).val();
+                        console.log(custom_css);
+                        var style = $('.targeted_styles_for_edit').attr('style');
+                        $(".targeted_styles_for_edit").attr('style', custom_css);
+                    });
+
+
+
+
+
+                });//END TD FUNCTION
+
+                
+                
             }
-        } );
-    } );
+        });
+    });
 
-    // Attach the mutation observer to blocker, and only when attribute values change
-    observer.observe( myTable, { attributes: true, childList:true  } );
+    observer.observe(list, {
+        attributes: true, 
+        childList: true, 
+        characterData: true,
+        subtree: true
+    });
 
-    // Make trigger change the style attribute of blocker
-    trigger.addEventListener( 'click', function(){
-        //        $(blocker).removeAttr('style');
-        myTable.removeAttribute( 'name' );
-    }, false );
+    var element = ("tr");
+//
+//    
+//    setInterval(
+//        function(){	
+//            $(list).append("<tr>" + "<td>" + "<h2>" + "THIS IS A TEST" + "</h2>" + "</td>" + "</tr>");
+//        }, 
+//        2000);
 
-
-
-
-
-
-
-
-
+    
+    
+    
+    
     
     
     
     
 });//DOCUMENT READY END
+
+
+
+
+
+
+
+//    
+//    var list = document.getElementById("myTable");
+//
+//    var MutationObserver = window.MutationObserver ||
+//        window.WebKitMutationObserver || 
+//        window.MozMutationObserver;
+//
+//    var observer = new MutationObserver(function(mutations) {  
+//        mutations.forEach(function(mutation) {
+//            if (mutation.type === 'childList') {
+//               console.log("mutation!");
+//            }
+//        });
+//    });
+//
+//    observer.observe(list, {
+//        attributes: true, 
+//        childList: true, 
+//        characterData: true,
+//        subtree: true
+//    });
+//
+//    var element = ("tr");
+
+
 
 
 
