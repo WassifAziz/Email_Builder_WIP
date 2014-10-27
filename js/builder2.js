@@ -54,13 +54,13 @@ $(window).load(function() {
     });
 
 
+    //add spacer TR
     $('#addSpace').on('click', function() {
 
         var spacerTr = $('#spacerTr > tbody').html();
         $(spacerTr).appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
 
     });
-
 
     //Render created table
     $("#Result").click(function() {
@@ -78,10 +78,6 @@ $(window).load(function() {
 
     });
 
-    
-    
-    
-
 
     jQuery(function($) {
 
@@ -96,15 +92,75 @@ $(window).load(function() {
                 if (!$(this).text().trim().length) {
                     console.log('no text');
                 } else {
-                    console.log('has text');
+                    //console.log('has text');
                     $(this).addClass('editable');
                     $("#myTable > tbody").sortable("disable");
 
                     $('.editable').editable({
                         inlineMode: false,
                         beautifyCode: true,
-                        paragraphy: false
-                    })
+                        paragraphy: false,
+
+                        // Set custom buttons with separator between them. Also include the name
+                        // of the buttons  defined in customButtons.
+                        buttons: ['bold', 'undo', 'redo' , 'bold', 'sep', 'alert', 'clear', 'createLink', 'html', 'insertImage','close'],
+
+                        // Define custom buttons.
+                        customButtons: {
+                            // Alert button with Font Awesome icon.
+                            alert: {
+                                title: 'Alert',
+                                icon: {
+                                    type: 'font',
+
+                                    // Font Awesome icon class fa fa-*.
+                                    value: 'fa fa-info'
+                                },
+                                callback: function () {
+                                    alert ('Hello!')
+                                },
+                                refresh: function () { }
+                            },
+
+                            // Clear HTML button with text icon.
+                            clear: {
+                                title: 'Clear HTML',
+                                icon: {
+                                    type: 'txt',
+                                    value: 'x'
+                                },
+                                callback: function () {
+                                    this.setHTML('');
+                                    this.focus();
+                                },
+                                refresh: function () { }
+                            },
+
+                            // Close button with image button.
+                            close: {
+                                title: 'close',
+                                icon: {
+                                    // Recommended size: 40 x 35.
+                                    type: 'font',
+
+                                    // src for the image.
+                                    value: 'fa fa-times'
+                                },
+                                callback: function () {
+                                    // Close.
+                                    $('.editable').editable("destroy");
+
+                                    $('td').removeClass('editable');
+                                    $("#myTable > tbody").sortable("enable");
+
+                                    // Save HTML in undo stack.
+                                    this.saveUndoStep();
+                                },
+                                refresh: function () { }
+                            }
+
+                        }
+                    });
 
                     $("#closeEditor, .remove").click(function() {
 
@@ -178,13 +234,13 @@ $(window).load(function() {
                     $("#myTable > tbody").sortable("disable");
                     $('#linkEditor').show();
 
-                    $("#closeEditor").click(function() {
+                    $('#closeEditor, input[value="Done"]').click(function() {
                         $('.activeLink').removeClass('activeLink');
                         $("#myTable > tbody").sortable("enable");
                     });
                 }
             });
-
+            
         });
 
     });

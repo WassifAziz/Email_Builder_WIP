@@ -8,8 +8,15 @@
 @bodybg: #FFF;
 
 
+html, body{
+    position: relative;
+    height: 100%;
+}
+
+
 body{
     background-color: @bodybg;
+    overflow: hidden;
 }
 
 #wrapper {
@@ -48,7 +55,7 @@ button{
     width:40%;
     padding:40px;
     box-sizing: border-box;
-    display: inline-block!important;
+    display: inline-block;
     #Thumbs{
         margin-top:35px;
         border: solid 1px #666;
@@ -73,6 +80,10 @@ button{
     background: #fff;
     padding:40px;
     box-sizing: border-box;
+    max-width: 900px!important;
+    height:100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
     #Compose{
         margin-bottom:20px;
         .activeLink{
@@ -165,7 +176,7 @@ button{
 
 .ms-parent{
     display: block!important;
-    width:50%!important;
+    width:100%!important;
     margin-top: 25px!important;
     .ms-choice{
         width:100%;
@@ -177,6 +188,7 @@ button{
             display: block;
             clear: both;
             margin-bottom:15px;
+            color: #000;
         }
     margin-top: 25px;
 }

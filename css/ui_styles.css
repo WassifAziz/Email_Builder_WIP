@@ -85,8 +85,15 @@ h2 {
 .expanded_pane.styles {
   color: #000000;
 }
+.expanded_pane.blocks {
+  overflow-y: scroll;
+}
 .expanded_pane.blocks #Thumbs img {
   width: 100%;
+}
+.expanded_pane button {
+  color: black;
+  margin-bottom: 25px;
 }
 .preview_area {
   background-color: #a7a7a7;

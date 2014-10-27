@@ -473,8 +473,7 @@ $(document).ready(function() {
 
 
                 });//END TD FUNCTION
-
-                
+             
                 
             }
         });
@@ -495,13 +494,6 @@ $(document).ready(function() {
 //            $(list).append("<tr>" + "<td>" + "<h2>" + "THIS IS A TEST" + "</h2>" + "</td>" + "</tr>");
 //        }, 
 //        2000);
-
-    
-    
-    
-    
-    
-    
     
     
 });//DOCUMENT READY END

@@ -66,14 +66,16 @@
                 <i class="fa fa-cogs"></i>
                 <h2>Styles</h2>
             </div>
-            <div class="tool text">
-                <i class="fa fa-font"></i>
-                <h2>Text Editor</h2>
+            <div class="tool links">
+                <i class="fa fa-link"></i>
+                <h2>Link Editor</h2>
             </div>
         </section>
 
-        <section class="expanded_pane blocks" style="display:block;">
+        <section class="expanded_pane blocks">
             <h2 class="title"></h2>
+
+            <button id="addSpace">Add Spacer table</button>
 
             <div id="Thumbs">
 
@@ -102,6 +104,20 @@
 
         <section class="expanded_pane styles">
             <h2 class="title"></h2>
+
+            <select multiple="multiple" id="select_class">
+                <!--<option value="WF">full width</option>
+<option value="hide">hide</option>-->
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+
             <div class="retrieved_styles"></div>
             <div class="font_styles">
 
@@ -180,49 +196,8 @@
 
         </section>
 
-        <section class="expanded_pane text">
+        <section class="expanded_pane links">
             <h2 class="title"></h2>
-
-
-
-        </section>
-
-        <div id="Remove"></div>
-
-
-
-        <section id="Tools">
-
-            <button id="Action">Test HTML</button>
-
-            <button id="Target">Add</button>
-
-            <button id="Result">Result me</button>
-
-            <button id="addSpace">Add Spacer table</button>
-
-            <button id="closeEditor">Close Editor</button>
-
-            <div id="trigger" style="width:20px";>
-                Show blocking element
-            </div>
-            
-            <!--<div class="editorTest"></div>-->
-
-            <select multiple="multiple" id="select_class">
-                <!--<option value="WF">full width</option>
-                <option value="hide">hide</option>-->
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-            </select>
-
-
             <form id="linkEditor">
 
                 <input class="linkTXT" type="text" name="Link Text" size="25" placeholder="Insert link text">
@@ -232,33 +207,37 @@
                 <input class="Done" type="button" name="button" value="Done">
 
             </form>
+        </section>
+
+        <div id="Remove"></div>
 
 
+        <!--Tools (hidden WiP)-->
+        <section id="Tools" style="display:none;">
+            <button id="Action">Test HTML</button>
 
+            <button id="Target">Add</button>
 
+            <button id="Result">Result me</button>
 
+            <button id="closeEditor">Close Editor</button>
+            <!--<div class="editorTest"></div>-->
         </section>
 
 
 
+        <!--Render section-->
         <section id="Render">
 
             <div id="Compose">
-
                 <table cellpadding="0" cellspacing="0" border="0" width="620" align="center" style="background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 620px;" bgcolor="#FFFFFF" id="myTable">
                     <tbody></tbody>
                 </table>
-
             </div>
-
-
 
             <div id="Final">
-
                 <table class="Result"></table>
-
             </div>
-
 
         </section>
 
@@ -267,8 +246,6 @@
         <div class="clear"></div>
         <!--Load email mothership-->
         <section id="loadHere" style="height:0px;"></section>
-
-
         <table id="spacerTr">
             <tr class="spacer_tr">
                 <td align="left" valign="top" height="15" style="font-size: 1px; line-height:1px;">
@@ -276,42 +253,40 @@
                 </td>
             </tr>
         </table>
-
         <section id="outputimages"></section>
+        <!--Loaded dynamic elements END-->
 
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/froala_editor.min.js"></script>
+    <script type="text/javascript" src="js/jquery.multiple.select.js"></script>
+    <script>
+        $('#myTable > tbody').sortable();
+
+        $('#select_class').multipleSelect({
+            placeholder: "Please select CSS classes",
+            selectAll: false
+        });
+
+        $("#Render").resizable({
+            handles       : 'e,w',
+            animate: true, 
+            resize        : function (event,ui){
+                ui.position.left = ui.originalPosition.left;
+                ui.size.width    = ( ui.size.width
+                                    - ui.originalSize.width )*2
+                + ui.originalSize.width;
+            }
+        });
+    </script>
+    <script src="js/HTML_ui.js"></script>
+    <script type="text/javascript" src="js/builder2.js"></script>
+    <script type="text/javascript" src="js/colorpicker.js"></script>
+
 </body>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<!--    <script type="text/javascript" src="js/jquery.inlineedit.js"></script>-->
-
-<script type="text/javascript" src="js/froala_editor.min.js"></script>
-
-<!--<script type="text/javascript" src="js/jeditable.js"></script>-->
-
-<script type="text/javascript" src="js/jquery.multiple.select.js"></script>
-
-<script>
-    $('#myTable > tbody').sortable();
-
-    $('#select_class').multipleSelect({
-        placeholder: "Please select Classes",
-        selectAll: false
-    });
-</script>
-
-<!--<script src="js/jquery-watch.js" type="text/javascript"></script>-->
-
-    <script src="js/HTML_ui.js"></script>
-    
-<script type="text/javascript" src="js/builder2.js"></script>
-
-<script type="text/javascript" src="js/colorpicker.js"></script>
-
-
-
-    
 </html>
 
 
