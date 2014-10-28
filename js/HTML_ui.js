@@ -496,6 +496,55 @@ $(document).ready(function() {
 //        2000);
     
     
+    
+    
+    //when selecting a class on the drop down, add this class to the header tag
+    $('#select_class').on("change",function() {  
+
+        $('#custom_styles').html("");
+
+        var arr ="wf{width:100%!important;} - db{display:block!important;} - hide{display:none!important;}";
+        arr = arr.split('-');
+        arr = $(arr).map(String.prototype.trim);
+
+        var selected_styles_class = [], selected_styles_style = [];
+
+        for(var i=0; i<arr.length; i++){
+            selected_styles_class[i] = arr[i].split("{")[0];
+            selected_styles_style[i] = arr[i];
+        }
+
+
+        var selectedValues = $("#select_class option:checked").val();
+        $("#select_class option:checked").each(function () {
+
+            if ($.inArray($(this).val(), selected_styles_class) != -1) {
+                var area = $(this).index();
+
+                $('#custom_styles').append("." + selected_styles_style[area]);
+
+                //add classes to head tag
+                var styles_data = $( "#custom_styles" ).html();
+                arr =  $.unique(styles_data.split('.'));
+                styles_data = arr.join(".");
+                $('#custom_styles').html("");
+                $('#custom_styles').append(styles_data);
+
+            };
+        });
+
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 });//DOCUMENT READY END
 
 
