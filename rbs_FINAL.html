@@ -957,7 +957,10 @@ http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-d
 
 
     <script>
-        var tableStyle = $('style');
+        //var tableStyle = $('style');
+        
+        var tableStyle = $('#custom_styles')[0].outerHTML;
+        
 
         var allTrs = $('.rbsTable > tbody').children('tr');
 

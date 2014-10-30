@@ -536,8 +536,14 @@ $(document).ready(function() {
     });
     
     
+    //prepend head to output html
     
-    
+   
+    var result_area = $('#Final').html;
+    var custom_styles = $('#custom_styles').html();
+    var head_styles = '<html><head><title>javascript - How to replace innerHTML of a div using jQuery? - Stack Overflow</title></head><body>test</body></html>';
+    result_area = custom_styles + result_area;
+    //console.log(result_area);
     
     
     
