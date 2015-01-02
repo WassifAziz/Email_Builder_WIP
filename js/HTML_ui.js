@@ -538,44 +538,110 @@ $(document).ready(function() {
     
     //prepend head to output html
     
-    $('#downloadHTML').on('click', function() {
+//    $('#downloadHTML').on('click', function() {
+//
+//        
+//        if ($(".Result").html().length > 0) {
+//            
+//            var zip = new JSZip();
+//            //var email = $('#Final').html();
+//            //var email = $('#Final')[0].outerHTML;
+//            var email = $('#Final')[0].outerHTML;
+//
+//            var tableStyle = $('#custom_styles')[0].outerHTML;
+//
+//            var styledEmail = tableStyle + email;
+//
+//            //var styledEmail = mainHTML + tableStyle + email;
+//
+//            zip.file("email.html", styledEmail);
+//            var img = zip.folder("images");
+//            var content = zip.generate({type:"blob"});
+//            // see FileSaver.js
+//            saveAs(content, "example.zip");  
+//            var head_styles = 'HELLO';
+//            
+//        }  //END IF
+//        
+//        else{
+//            
+//            alert("press result first!");
+//            
+//        }
+//        
+//    }); //end download function
+    
+    
+    
+    ///DOWNLOAD ALL IMAGES FROM URL
+    //http://lifelongprogrammer.blogspot.co.uk/2014/06/using-jszip-to-download-multiple-remote-images.html
 
-        
-        if ($(".Result").html().length > 0) {
-            
+    $('#downloadHTML').on('click', function() {   
+    
+        function downloadAllImages(imgLinks){
             var zip = new JSZip();
-            //var email = $('#Final').html();
-            //var email = $('#Final')[0].outerHTML;
-            var email = $('#Final')[0].outerHTML;
+            var deferreds = [];
+            
+            //get src of where files have been uploaded
+            var imgLinks = $('#Compose img').map(function() { return this.src; }).get();
 
-            var tableStyle = $('#custom_styles')[0].outerHTML;
-
-            var styledEmail = tableStyle + email;
-
-            //var styledEmail = mainHTML + tableStyle + email;
-
-            zip.file("email.html", styledEmail);
-            var img = zip.folder("images");
+            for(var i=0; i<imgLinks.length; i++)
+            {
+                deferreds.push( addToZip(zip, imgLinks[i], i) );
+            }
+            $.when.apply(window, deferreds).done(generateZip);
+        }
+        function generateZip(zip)
+        {
             var content = zip.generate({type:"blob"});
             // see FileSaver.js
-            saveAs(content, "example.zip");  
-            var head_styles = 'HELLO';
-            
-        }  //END IF
-        
-        else{
-            
-            alert("press result first!");
-            
+            saveAs(content, "downloadImages.zip");
         }
-        
-      
+        function addToZip(zip, imgLink, i) {
+            var deferred = $.Deferred();
+            JSZipUtils.getBinaryContent(imgLink, function (err, data) {
+                if(err) {
+                    alert("Problem happened when download img: " + imgLink);
+                    console.erro("Problem happened when download img: " + imgLink);
+                    deferred.resolve(zip); // ignore this error: just logging
+                    // deferred.reject(zip); // or we may fail the download
+                } else {
+                    zip.file("picture"+i+".jpg", data, {binary:true});
+                    
+                    //replace src of images in final area
+                    var counter=-1  // global variabl
+                    $("#Final img").each(function() {  
+                        counter++;
+                        console.log(counter);
+                        $(this).attr('src', 'picture' +counter + '.jpg');
+                    });    
+                    
+                    
+                    //save contents of final area and custom css into zip
+                    var email = $('#Final')[0].outerHTML;
+                    var tableStyle = $('#custom_styles')[0].outerHTML;
+                    var styledEmail = tableStyle + email;
+                    zip.file("email.html", styledEmail);
+                     
+                    deferred.resolve(zip);
+                }
+            });
+            return deferred;
+        }
 
-    });
+        downloadAllImages();
     
-
-
-
+    }); //end download function
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

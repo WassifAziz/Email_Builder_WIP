@@ -76,6 +76,7 @@
                 <i class="fa fa-link"></i>
                 <h2>Link Editor</h2>
             </div>
+            
         </section>
 
         <section class="expanded_pane blocks">
@@ -271,6 +272,7 @@
     <script type="text/javascript" src="js/froala_editor.min.js"></script>
     <script type="text/javascript" src="js/jquery.multiple.select.js"></script>
     <script type="text/javascript" src="js/jszip.js"></script>
+    <script type="text/javascript" src="js/jszip-utils.js"></script>
     <script type="text/javascript" src="js/FileSaver.js"></script>
     <script>
         $('#myTable > tbody').sortable();
@@ -292,7 +294,13 @@
         saveAs(content, "example.zip");*/
 
 
-
+JSZipUtils.getBinaryContent("http://images.gigatdst.com/uploads/", function (err, data) {
+    if(err) {
+        throw err; // or handle the error
+    }
+    var zip = new JSZip();
+    zip.file("picture.png", data, {binary:true});
+});
        
 
         
