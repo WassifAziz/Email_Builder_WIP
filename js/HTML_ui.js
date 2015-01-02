@@ -538,14 +538,44 @@ $(document).ready(function() {
     
     //prepend head to output html
     
-   
-    var result_area = $('#Final').html;
-    var custom_styles = $('#custom_styles').html();
-    var head_styles = '<html><head><title>javascript - How to replace innerHTML of a div using jQuery? - Stack Overflow</title></head><body>test</body></html>';
-    result_area = custom_styles + result_area;
-    //console.log(result_area);
+    $('#downloadHTML').on('click', function() {
+
+        
+        if ($(".Result").html().length > 0) {
+            
+            var zip = new JSZip();
+            //var email = $('#Final').html();
+            //var email = $('#Final')[0].outerHTML;
+            var email = $('#Final')[0].outerHTML;
+
+            var tableStyle = $('#custom_styles')[0].outerHTML;
+
+            var styledEmail = tableStyle + email;
+
+            //var styledEmail = mainHTML + tableStyle + email;
+
+            zip.file("email.html", styledEmail);
+            var img = zip.folder("images");
+            var content = zip.generate({type:"blob"});
+            // see FileSaver.js
+            saveAs(content, "example.zip");  
+            var head_styles = 'HELLO';
+            
+        }  //END IF
+        
+        else{
+            
+            alert("press result first!");
+            
+        }
+        
+      
+
+    });
     
-    
+
+
+
     
     
     

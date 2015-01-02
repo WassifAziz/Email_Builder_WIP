@@ -227,6 +227,8 @@
             <button id="Result">Result me</button>
 
             <button id="closeEditor">Close Editor</button>
+            
+            <button id="downloadHTML">download HTML</button>
             <!--<div class="editorTest"></div>-->
         </section>
 
@@ -288,30 +290,11 @@
         var content = zip.generate({type:"blob"});
         // see FileSaver.js
         saveAs(content, "example.zip");*/
-        
-        
-        var zip = new JSZip();
-        //var email = $('#Final').html();
-        //var email = $('#Final')[0].outerHTML;
-        var email = $('#Final')[0].outerHTML;
-        
-        var tableStyle = $('#custom_styles')[0].outerHTML;
-        
-        var styledEmail = tableStyle + email;
-        
-        //var styledEmail = mainHTML + tableStyle + email;
-        
-        zip.file("email.html", styledEmail);
-        var img = zip.folder("images");
-        var content = zip.generate({type:"blob"});
-        // see FileSaver.js
-        saveAs(content, "example.zip");  
-        var head_styles = 'HELLO';
-        
-        
-        
-        
-        
+
+
+
+       
+
         
         $("#Render").resizable({
             handles       : 'e,w',
