@@ -1,6 +1,8 @@
 var retrieved_styles
 var styles_array
 var custom_styles
+var project_name
+project_name = $('#project_name').val();
 
 $(window).load(function() {
     
@@ -11,7 +13,13 @@ $(window).load(function() {
 
 $(document).ready(function() {
     
-    
+    //get project name
+    $('#project_name').on('input', function() {
+        project_name = $(this).val();
+        project_name = project_name.replace(/ /g,"_");
+        project_name = project_name.text();
+        
+    });
     
     $('#slider').slider({
         value:12,
@@ -612,7 +620,7 @@ $(document).ready(function() {
         {
             var content = zip.generate({type:"blob"});
             // see FileSaver.js
-            saveAs(content, "downloadImages.zip");
+            saveAs(content, project_name + ".zip");
         }
         function addToZip(zip, imgLink, i) {
             var deferred = $.Deferred();
@@ -623,14 +631,14 @@ $(document).ready(function() {
                     deferred.resolve(zip); // ignore this error: just logging
                     // deferred.reject(zip); // or we may fail the download
                 } else {
-                    zip.file("picture"+i+".jpg", data, {binary:true});
+                    zip.file(project_name + "_picture"+i+".jpg", data, {binary:true});
                     
                     //replace src of images in final area
                     var counter=-1  // starts at -1 as spacer counts as picture
                     $("#Final img").each(function() {  
                         counter++;
                         console.log(counter);
-                        $(this).attr('src', 'picture' +counter + '.jpg');
+                        $(this).attr('src', project_name + '_picture' +counter + '.jpg');
                     });    
                     
                     
@@ -638,7 +646,7 @@ $(document).ready(function() {
                     var email = $('#Final')[0].outerHTML;
                     var tableStyle = $('#custom_styles')[0].outerHTML;
                     var styledEmail = tableStyle + email;
-                    zip.file("email.html", styledEmail);
+                    zip.file("index.html", styledEmail);
                      
                     deferred.resolve(zip);
                 }
