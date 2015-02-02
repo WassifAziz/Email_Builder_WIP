@@ -206,7 +206,7 @@ $(document).ready(function() {
         
         //retrieve the inline CSS from clicked TD and add to textarea under custom styles
         custom_styles =  retrieved_styles;
-        $(".custom_css").text(custom_styles);
+        $(".custom_css").val($(custom_styles).val());
         
 
         //detect any text input change on custom css textarea and updated styles accordingly
@@ -291,6 +291,7 @@ $(document).ready(function() {
         //add mso line height rule to any element with line height changed
         var style = $('.targeted_styles_for_edit').attr('style');
         $(".targeted_styles_for_edit").attr('style', style + ' mso-line-height-rule:exactly;');
+        
     });
     
     $('#padding').on('input', function() {
@@ -313,7 +314,10 @@ $(document).ready(function() {
         $(".targeted_styles_for_edit").attr("valign", vertical_align);
     });
     
-    
+    //remove bgcolour if pressed
+    $("#bg_removebtn").on('click', function () {   
+        $('.targeted_styles_for_edit').removeAttr("bgcolor");
+    });
     
     //OBSERVER (Beta)
     
@@ -528,7 +532,13 @@ $(document).ready(function() {
                 arr =  $.unique(styles_data.split('.'));
                 styles_data = arr.join(".");
                 $('#custom_styles').html("");
-                $('#custom_styles').append(styles_data);
+//                $('#custom_styles').append(styles_data);
+                
+                //insert custom styles into media query in head
+                $('#custom_styles').replaceWith(
+                    
+                    '<style type="text/css" id="custom_styles">' + '@media only screen and (max-width: 640px) {' + styles_data + '}');
+                
 
             };
         });
@@ -609,7 +619,7 @@ $(document).ready(function() {
                     zip.file("picture"+i+".jpg", data, {binary:true});
                     
                     //replace src of images in final area
-                    var counter=-1  // global variabl
+                    var counter=-1  // starts at -1 as spacer counts as picture
                     $("#Final img").each(function() {  
                         counter++;
                         console.log(counter);
@@ -632,65 +642,10 @@ $(document).ready(function() {
         downloadAllImages();
     
     }); //end download function
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
 });//DOCUMENT READY END
 
 
-
-
-
-
-
-//    
-//    var list = document.getElementById("myTable");
-//
-//    var MutationObserver = window.MutationObserver ||
-//        window.WebKitMutationObserver || 
-//        window.MozMutationObserver;
-//
-//    var observer = new MutationObserver(function(mutations) {  
-//        mutations.forEach(function(mutation) {
-//            if (mutation.type === 'childList') {
-//               console.log("mutation!");
-//            }
-//        });
-//    });
-//
-//    observer.observe(list, {
-//        attributes: true, 
-//        childList: true, 
-//        characterData: true,
-//        subtree: true
-//    });
-//
-//    var element = ("tr");
-
-
-
-
-
-//function runs when clicked outside of target container
-//$(document).mouseup(function (e)
-//                    {
-//    var container = $(".custom_css");
-//
-//    if (!container.is(e.target) // if the target of the click isn't the container...
-//        && container.has(e.target).length === 0) // ... nor a descendant of the container
-//    {
-//        container.hide();
-//    }
-//});

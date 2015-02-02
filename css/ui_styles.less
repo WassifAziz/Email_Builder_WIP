@@ -60,7 +60,7 @@ h2{
     max-width:100px; 
     width:100%;
     height: 100%;
-    background-color: #3D423C;
+    background-color: #A9181F;
     color: #fff;
     float: left;
     position: fixed;
@@ -118,9 +118,39 @@ h2{
         }
         overflow-y: scroll;
     }
-    button{
-        color:black;
+    
+    #font_color{
+        float: right;
+        display: inline-block;
+    }
+    
+    #bg_color{
+        float: left;
+        display: inline-block;
+    }
+    
+    #bg_color_selector,#font_color_selector{
+        background-color: #ffffff;
+        height: 40px;
+        width:150px;
+        float: left;
+        div{
+            height: 40px;
+            line-height: 40px;
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+    #bg_removebtn{
+        color: black;
+        height: 24px;
         margin-bottom: 25px;
+        float: left;
+        margin-bottom: 0px;
+        font-size: 12px;
+        line-height: 5px;
+        width: 150px;
+
     }
 }
 
@@ -183,6 +213,7 @@ h2{
 .outline_td {
     outline: 2px dotted #99ccff;
 }
+
 
 
 @-webkit-keyframes fadeInLeft { 
