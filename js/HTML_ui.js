@@ -536,20 +536,22 @@ $(document).ready(function() {
                 $('#custom_styles').append("." + selected_styles_style[area]);
 
                 //add classes to head tag
-                var styles_data = $( "#custom_styles" ).html();
-                arr =  $.unique(styles_data.split('.'));
-                styles_data = arr.join(".");
-                $('#custom_styles').html("");
-//                $('#custom_styles').append(styles_data);
-                
-                //insert custom styles into media query in head
-                $('#custom_styles').replaceWith(
-                    
-                    '<style type="text/css" id="custom_styles">' + '@media only screen and (max-width: 640px) {' + styles_data + '}');
-                
+              
 
             };
         });
+        
+        var styles_data = $( "#custom_styles" ).html();
+        arr =  $.unique(styles_data.split('.'));
+        styles_data = arr.join(".");
+        $('#custom_styles').html("");
+        //                $('#custom_styles').append(styles_data);
+
+        //insert custom styles into media query in head
+        $('#custom_styles').replaceWith(
+
+            '<style type="text/css" id="custom_styles">' + '@media only screen and (max-width: 640px) {' + styles_data + '}');
+
 
     });
     
