@@ -206,7 +206,7 @@ $(document).ready(function() {
         
         //retrieve the inline CSS from clicked TD and add to textarea under custom styles
         custom_styles =  retrieved_styles;
-        $(".custom_css").text(custom_styles);
+        $(".custom_css").val($(custom_styles).val());
         
 
         //detect any text input change on custom css textarea and updated styles accordingly
@@ -291,6 +291,7 @@ $(document).ready(function() {
         //add mso line height rule to any element with line height changed
         var style = $('.targeted_styles_for_edit').attr('style');
         $(".targeted_styles_for_edit").attr('style', style + ' mso-line-height-rule:exactly;');
+        
     });
     
     $('#padding').on('input', function() {
@@ -313,7 +314,10 @@ $(document).ready(function() {
         $(".targeted_styles_for_edit").attr("valign", vertical_align);
     });
     
-    
+    //remove bgcolour if pressed
+    $("#bg_removebtn").on('click', function () {   
+        $('.targeted_styles_for_edit').removeAttr("bgcolor");
+    });
     
     //OBSERVER (Beta)
     
@@ -528,7 +532,13 @@ $(document).ready(function() {
                 arr =  $.unique(styles_data.split('.'));
                 styles_data = arr.join(".");
                 $('#custom_styles').html("");
-                $('#custom_styles').append(styles_data);
+//                $('#custom_styles').append(styles_data);
+                
+                //insert custom styles into media query in head
+                $('#custom_styles').replaceWith(
+                    
+                    '<style type="text/css" id="custom_styles">' + '@media only screen and (max-width: 640px) {' + styles_data + '}');
+                
 
             };
         });
@@ -536,65 +546,113 @@ $(document).ready(function() {
     });
     
     
+    //prepend head to output html
     
+
 //    var result_area = $('#Final').html;
 //    var custom_styles = $('#custom_styles').html();
 //    var head_styles = '<html><head><title>javascript - How to replace innerHTML of a div using jQuery? - Stack Overflow</title></head><body>test</body></html>';
 //    result_area = custom_styles + result_area;
 //    //console.log(result_area);
+
+//    $('#downloadHTML').on('click', function() {
+//
+//        
+//        if ($(".Result").html().length > 0) {
+//            
+//            var zip = new JSZip();
+//            //var email = $('#Final').html();
+//            //var email = $('#Final')[0].outerHTML;
+//            var email = $('#Final')[0].outerHTML;
+//
+//            var tableStyle = $('#custom_styles')[0].outerHTML;
+//
+//            var styledEmail = tableStyle + email;
+//
+//            //var styledEmail = mainHTML + tableStyle + email;
+//
+//            zip.file("email.html", styledEmail);
+//            var img = zip.folder("images");
+//            var content = zip.generate({type:"blob"});
+//            // see FileSaver.js
+//            saveAs(content, "example.zip");  
+//            var head_styles = 'HELLO';
+//            
+//        }  //END IF
+//        
+//        else{
+//            
+//            alert("press result first!");
+//            
+//        }
+//        
+//    }); //end download function
+
     
     
+    ///DOWNLOAD ALL IMAGES FROM URL
+    //http://lifelongprogrammer.blogspot.co.uk/2014/06/using-jszip-to-download-multiple-remote-images.html
+
+    $('#downloadHTML').on('click', function() {   
     
+        function downloadAllImages(imgLinks){
+            var zip = new JSZip();
+            var deferreds = [];
+            
+            //get src of where files have been uploaded
+            var imgLinks = $('#Compose img').map(function() { return this.src; }).get();
+
+            for(var i=0; i<imgLinks.length; i++)
+            {
+                deferreds.push( addToZip(zip, imgLinks[i], i) );
+            }
+            $.when.apply(window, deferreds).done(generateZip);
+        }
+        function generateZip(zip)
+        {
+            var content = zip.generate({type:"blob"});
+            // see FileSaver.js
+            saveAs(content, "downloadImages.zip");
+        }
+        function addToZip(zip, imgLink, i) {
+            var deferred = $.Deferred();
+            JSZipUtils.getBinaryContent(imgLink, function (err, data) {
+                if(err) {
+                    alert("Problem happened when download img: " + imgLink);
+                    console.erro("Problem happened when download img: " + imgLink);
+                    deferred.resolve(zip); // ignore this error: just logging
+                    // deferred.reject(zip); // or we may fail the download
+                } else {
+                    zip.file("picture"+i+".jpg", data, {binary:true});
+                    
+                    //replace src of images in final area
+                    var counter=-1  // starts at -1 as spacer counts as picture
+                    $("#Final img").each(function() {  
+                        counter++;
+                        console.log(counter);
+                        $(this).attr('src', 'picture' +counter + '.jpg');
+                    });    
+                    
+                    
+                    //save contents of final area and custom css into zip
+                    var email = $('#Final')[0].outerHTML;
+                    var tableStyle = $('#custom_styles')[0].outerHTML;
+                    var styledEmail = tableStyle + email;
+                    zip.file("email.html", styledEmail);
+                     
+                    deferred.resolve(zip);
+                }
+            });
+            return deferred;
+        }
+
+        downloadAllImages();
     
-    
-    
+    }); //end download function
+
     
     
     
 });//DOCUMENT READY END
 
 
-
-
-
-
-
-//    
-//    var list = document.getElementById("myTable");
-//
-//    var MutationObserver = window.MutationObserver ||
-//        window.WebKitMutationObserver || 
-//        window.MozMutationObserver;
-//
-//    var observer = new MutationObserver(function(mutations) {  
-//        mutations.forEach(function(mutation) {
-//            if (mutation.type === 'childList') {
-//               console.log("mutation!");
-//            }
-//        });
-//    });
-//
-//    observer.observe(list, {
-//        attributes: true, 
-//        childList: true, 
-//        characterData: true,
-//        subtree: true
-//    });
-//
-//    var element = ("tr");
-
-
-
-
-
-//function runs when clicked outside of target container
-//$(document).mouseup(function (e)
-//                    {
-//    var container = $(".custom_css");
-//
-//    if (!container.is(e.target) // if the target of the click isn't the container...
-//        && container.has(e.target).length === 0) // ... nor a descendant of the container
-//    {
-//        container.hide();
-//    }
-//});

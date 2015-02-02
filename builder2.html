@@ -49,7 +49,9 @@
     </style>
     
     <style type='text/css' id="custom_styles">
-        
+        .testClass{
+            color:red;
+        }
         </style>
 
 </head>
@@ -74,6 +76,7 @@
                 <i class="fa fa-link"></i>
                 <h2>Link Editor</h2>
             </div>
+            
         </section>
 
         <section class="expanded_pane blocks">
@@ -125,22 +128,28 @@
             <div class="retrieved_styles"></div>
             <div class="font_styles">
 
-                <H3>Background Colour</H3>
-
-                <div id="bg_color_selector">
-                    <div style="background-color: #ffffff">&nbsp;</div>
+                
+                <div id="bg_color">
+                    <H3>Background Colour</H3>
+                    <div id="bg_color_selector">
+                        <div>&nbsp;</div>
+                    </div>
                 </div>
 
-                <span id="bgremove">Remove Background</span>
-                <input id="bg_removecheckbox" type="checkbox" name="Remove_background" value="remove_bg">
-
-
-
-                <H3>Font Colour</H3>
-                <div id="font_color_selector">
-                    <div style="background-color: #0000ff">&nbsp;</div>
+                <div id="font_color">
+                    <form action="" method="get"></form><H3>Font Colour</H3>
+                    <div id="font_color_selector">
+                        <div style="background-color: #0000ff">&nbsp;</div>
+                    </div>
                 </div>
+         
 
+                <div class="clear"></div>
+
+                <button id="bg_removebtn" type="button">Remove BG</button>
+
+                <div class="clear"></div>
+                
                 <H3>Font Size</H3>
                 <!--                <input type="text" id="font_size" disabled>-->
                 <select id="font_size">
@@ -217,7 +226,7 @@
 
 
         <!--Tools (hidden WiP)-->
-        <section id="Tools" style="display:none;">
+        <section id="Tools">
             <button id="Action">Test HTML</button>
 
             <button id="Target">Add</button>
@@ -225,6 +234,8 @@
             <button id="Result">Result me</button>
 
             <button id="closeEditor">Close Editor</button>
+            
+            <button id="downloadHTML">download HTML</button>
             <!--<div class="editorTest"></div>-->
         </section>
 
@@ -266,6 +277,9 @@
     <script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <script type="text/javascript" src="js/froala_editor.min.js"></script>
     <script type="text/javascript" src="js/jquery.multiple.select.js"></script>
+    <script type="text/javascript" src="js/jszip.js"></script>
+    <script type="text/javascript" src="js/jszip-utils.js"></script>
+    <script type="text/javascript" src="js/FileSaver.js"></script>
     <script>
         $('#myTable > tbody').sortable();
 
@@ -274,6 +288,28 @@
             selectAll: false
         });
 
+        
+        
+        /*var zip = new JSZip();
+        var email = $('.Result').html();
+        zip.file("email.html", email);
+        var img = zip.folder("images");
+        img.file("smile.gif", imgData, {base64: true});
+        var content = zip.generate({type:"blob"});
+        // see FileSaver.js
+        saveAs(content, "example.zip");*/
+
+
+JSZipUtils.getBinaryContent("http://images.gigatdst.com/uploads/", function (err, data) {
+    if(err) {
+        throw err; // or handle the error
+    }
+    var zip = new JSZip();
+    zip.file("picture.png", data, {binary:true});
+});
+       
+
+        
         $("#Render").resizable({
             handles       : 'e,w',
             animate: true, 

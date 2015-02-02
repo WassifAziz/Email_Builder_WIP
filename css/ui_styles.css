@@ -41,7 +41,7 @@ h2 {
   max-width: 100px;
   width: 100%;
   height: 100%;
-  background-color: #3D423C;
+  background-color: #A9181F;
   color: #fff;
   float: left;
   position: fixed;
@@ -91,9 +91,37 @@ h2 {
 .expanded_pane.blocks #Thumbs img {
   width: 100%;
 }
-.expanded_pane button {
+.expanded_pane #font_color {
+  float: right;
+  display: inline-block;
+}
+.expanded_pane #bg_color {
+  float: left;
+  display: inline-block;
+}
+.expanded_pane #bg_color_selector,
+.expanded_pane #font_color_selector {
+  background-color: #ffffff;
+  height: 40px;
+  width: 150px;
+  float: left;
+}
+.expanded_pane #bg_color_selector div,
+.expanded_pane #font_color_selector div {
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  text-align: center;
+}
+.expanded_pane #bg_removebtn {
   color: black;
+  height: 24px;
   margin-bottom: 25px;
+  float: left;
+  margin-bottom: 0px;
+  font-size: 12px;
+  line-height: 5px;
+  width: 150px;
 }
 .preview_area {
   background-color: #a7a7a7;

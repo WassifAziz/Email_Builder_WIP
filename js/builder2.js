@@ -68,7 +68,7 @@ $(window).load(function() {
         //Sort composed table in variable
         var table = $("#myTable").html();
 
-        console.log(table);
+        //console.log(table);
 
         //Output HTMl in container
         $(".Result").html(table);
