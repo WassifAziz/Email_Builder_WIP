@@ -611,7 +611,9 @@ $(document).ready(function() {
             
             //get src of where files have been uploaded
             var imgLinks = $('#Compose img').map(function() { return this.src; }).get();
-
+            //remove duplicates
+            //imgLinks= $.unique(imgLinks);
+            
             for(var i=0; i<imgLinks.length; i++)
             {
                 deferreds.push( addToZip(zip, imgLinks[i], i) );
