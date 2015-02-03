@@ -101,10 +101,36 @@ $(window).load(function() {
                         beautifyCode: true,
                         paragraphy: false,
 
+                        // Define custom IMAGE buttons.
+                        // Set image buttons, including the name
+                        // of the buttons defined in customImageButtons.
+                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage'],             
+                       
+                        // Define custom image buttons.
+                        customImageButtons: {
+                            info: {
+                                title: 'Image source',
+                                icon: {
+                                    type: 'font',
+                                    value: 'fa fa-info'
+                                },
+                                callback: function ($img){
+                                    alert ($img.attr('src'));
+                                },
+                                refresh: function ($img) {
+                                    console.log ('Refresh image button');
+                                    console.log ($img);
+                                }
+                            }
+                        },
+                        
+                        
+                        
+                        
                         // Set custom buttons with separator between them. Also include the name
                         // of the buttons  defined in customButtons.
                         buttons: ['bold', 'undo', 'redo' , 'bold', 'sep', 'alert', 'clear', 'createLink', 'html', 'insertImage','close'],
-
+                        
                         // Define custom buttons.
                         customButtons: {
                             // Alert button with Font Awesome icon.
