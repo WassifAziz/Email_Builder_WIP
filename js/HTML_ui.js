@@ -14,10 +14,7 @@ $(window).load(function() {
 
 
 
-
 $(document).ready(function() {
-    
-
     
     //get project name
     $('#project_name').on('input', function() {
@@ -362,8 +359,6 @@ $(document).ready(function() {
                     $(".text_align_buttons").css("display", "block");
                     $(".td_Valign_buttons").css("display", "block");
 
-                
-
 
                     //add class. the edit styles input targets this class
                     $('td').removeClass("targeted_styles_for_edit");
@@ -494,8 +489,6 @@ $(document).ready(function() {
 
                 });//END TD FUNCTION
              
-                
-      
                 
             }
         });
@@ -659,7 +652,7 @@ $(document).ready(function() {
                     deferred.resolve(zip); // ignore this error: just logging
                     // deferred.reject(zip); // or we may fail the download
                 } else {
-                    zip.file(project_name + "_img_"+i+"." +file_url[i], data, {binary:true});
+                    zip.file(project_name + "_img"+i+"." +file_url[i], data, {binary:true});
                     
                     //replace src of images in final area
                     var counter=-1  // starts at -1 as spacer counts as picture
@@ -670,7 +663,7 @@ $(document).ready(function() {
                         $(this).attr('src', project_name + '_img' +counter + '.jpg');
                     });    
                   
-                    
+                     
                     
                     //save contents of final area and custom css into zip
                     var email = $('#Final')[0].outerHTML;
