@@ -83,6 +83,14 @@ $(window).load(function() {
 
         $('#myTable').bind("DOMSubtreeModified", function() {
 
+            
+            //destroy editable area when clicking ok on image inline edit
+            $(".fr-p-bttn.f-ok").on('click', function() { 
+
+                $('.froala-box').editable("destroy");    
+            });
+            
+            
             // REST OF THE CODE HERE
             //complexEdit: Complex editor needed (wysywig)
             //simpleEdit: Simple editor needed (jeditable)
@@ -95,7 +103,9 @@ $(window).load(function() {
                     $(this).editable({
                         inlineMode: true,
                         countCharacters: false,
-                        placeholder: '',                    
+                        placeholder: '',  
+                        paragraphy: false,
+                        
                         
                         
                         // Set image buttons, including the name
@@ -117,7 +127,7 @@ $(window).load(function() {
                                 },
                                 callback: function () {
                                     // Close.
-                                    $('.editable').editable("destroy");
+                                    $('.froala-box').editable("destroy");
 
                                     $('td').removeClass('editable');
                                     $("#myTable > tbody").sortable("enable");
