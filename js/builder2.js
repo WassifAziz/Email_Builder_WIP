@@ -95,8 +95,45 @@ $(window).load(function() {
                     $(this).editable({
                         inlineMode: true,
                         countCharacters: false,
-                        placeholder: ''
+                        placeholder: '',                    
+                        
+                        
+                        // Set image buttons, including the name
+                        // of the buttons defined in customImageButtons.
+                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'close'],
+
+                        // Define custom image buttons.
+                        customImageButtons: {
+       
+                            // Close button with image button.
+                            close: {
+                                title: 'close',
+                                icon: {
+                                    // Recommended size: 40 x 35.
+                                    type: 'font',
+
+                                    // src for the image.
+                                    value: 'fa fa-times'
+                                },
+                                callback: function () {
+                                    // Close.
+                                    $('.editable').editable("destroy");
+
+                                    $('td').removeClass('editable');
+                                    $("#myTable > tbody").sortable("enable");
+
+                                    // Save HTML in undo stack.
+                                    this.saveUndoStep();
+                                },
+                                refresh: function () { }
+                            }
+
+                        },            
+                        
+                        
                     })
+                    
+                    
                     
                     
                 } else {
@@ -109,28 +146,7 @@ $(window).load(function() {
                         beautifyCode: true,
                         paragraphy: false,
 
-                        // Define custom IMAGE buttons.
-                        // Set image buttons, including the name
-                        // of the buttons defined in customImageButtons.
-                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage'],             
-                       
-                        // Define custom image buttons.
-                        customImageButtons: {
-                            info: {
-                                title: 'Image source',
-                                icon: {
-                                    type: 'font',
-                                    value: 'fa fa-info'
-                                },
-                                callback: function ($img){
-                                    alert ($img.attr('src'));
-                                },
-                                refresh: function ($img) {
-                                    console.log ('Refresh image button');
-                                    console.log ($img);
-                                }
-                            }
-                        },
+
                         
                         
                         
