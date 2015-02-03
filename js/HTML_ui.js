@@ -2,6 +2,9 @@ var retrieved_styles
 var styles_array
 var custom_styles
 var project_name
+var file_url
+var fileExtension
+
 project_name = $('#project_name').val();
 
 $(window).load(function() {
@@ -587,7 +590,7 @@ $(document).ready(function() {
 //            // see FileSaver.js
 //            saveAs(content, "example.zip");  
 //            var head_styles = 'HELLO';
-//            
+//             
 //        }  //END IF
 //        
 //        else{
@@ -612,13 +615,27 @@ $(document).ready(function() {
             //get src of where files have been uploaded
             var imgLinks = $('#Compose img').map(function() { return this.src; }).get();
             //remove duplicates
-            //imgLinks= $.unique(imgLinks);
+            imgLinks= $.unique(imgLinks);
             
+ 
             for(var i=0; i<imgLinks.length; i++)
             {
                 deferreds.push( addToZip(zip, imgLinks[i], i) );
             }
             $.when.apply(window, deferreds).done(generateZip);
+            
+            
+            //split array into file extentions only
+            file_url = imgLinks;
+            for(var i=0; i<file_url.length; i++)
+            {
+
+                file_url[i] = file_url[i].split('.').pop();
+                console.log(file_url[i]);
+            }
+
+             
+            
         }
         function generateZip(zip)
         {
@@ -635,15 +652,17 @@ $(document).ready(function() {
                     deferred.resolve(zip); // ignore this error: just logging
                     // deferred.reject(zip); // or we may fail the download
                 } else {
-                    zip.file(project_name + "_picture"+i+".jpg", data, {binary:true});
+                    zip.file(project_name + "_picture"+i+"." +file_url[i], data, {binary:true});
                     
                     //replace src of images in final area
                     var counter=-1  // starts at -1 as spacer counts as picture
+                    
+                    
                     $("#Final img").each(function() {  
                         counter++;
-                        console.log(counter);
                         $(this).attr('src', project_name + '_picture' +counter + '.jpg');
                     });    
+                  
                     
                     
                     //save contents of final area and custom css into zip
