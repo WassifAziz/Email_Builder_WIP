@@ -2,6 +2,9 @@
 Thumbs.db
 ehthumbs.db
 
+#brackets file
+.brackets.json
+
 # Folder config file
 Desktop.ini
 
