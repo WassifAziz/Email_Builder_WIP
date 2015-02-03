@@ -91,6 +91,14 @@ $(window).load(function() {
             $('.complexEdit').on('click', function() {
                 if (!$(this).text().trim().length) {
                     console.log('no text');
+                    //image editor
+                    $(this).editable({
+                        inlineMode: true,
+                        countCharacters: false,
+                        placeholder: ''
+                    })
+                    
+                    
                 } else {
                     //console.log('has text');
                     $(this).addClass('editable');
