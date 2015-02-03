@@ -105,9 +105,7 @@ $(window).load(function() {
                         countCharacters: false,
                         placeholder: '',  
                         paragraphy: false,
-                        
-                          
-                        
+  
                         // Set image buttons, including the name
                         // of the buttons defined in customImageButtons.
                         imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'close'],
