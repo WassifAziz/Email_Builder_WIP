@@ -615,7 +615,7 @@ $(document).ready(function() {
             //get src of where files have been uploaded
             var imgLinks = $('#Compose img').map(function() { return this.src; }).get();
             //remove duplicates
-            imgLinks= $.unique(imgLinks);
+            //imgLinks= $.unique(imgLinks);
             
  
             for(var i=0; i<imgLinks.length; i++)
@@ -655,7 +655,7 @@ $(document).ready(function() {
                     zip.file(project_name + "_img"+i+"." +file_url[i], data, {binary:true});
                     
                     //replace src of images in final area
-                    var counter=-1  // starts at -1 as spacer counts as picture
+                    var counter=-1   // starts at -1 as spacer counts as picture
                     
                     
                     $("#Final img").each(function() {  
@@ -663,7 +663,7 @@ $(document).ready(function() {
                         $(this).attr('src', project_name + '_img' +counter + '.jpg');
                     });    
                   
-                     
+                      
                     
                     //save contents of final area and custom css into zip
                     var email = $('#Final')[0].outerHTML;

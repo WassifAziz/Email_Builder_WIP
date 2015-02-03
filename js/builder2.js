@@ -85,7 +85,7 @@ $(window).load(function() {
 
             
             //destroy editable area when clicking ok on image inline edit
-            $(".fr-p-bttn.f-ok").on('click', function() { 
+            $(".froala-popup.froala-image-editor-popup > div.f-image-alt > button").on('click', function() { 
 
                 $('.froala-box').editable("destroy");    
             });
@@ -106,7 +106,7 @@ $(window).load(function() {
                         placeholder: '',  
                         paragraphy: false,
                         
-                        
+                          
                         
                         // Set image buttons, including the name
                         // of the buttons defined in customImageButtons.
