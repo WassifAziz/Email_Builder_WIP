@@ -652,7 +652,7 @@ $(document).ready(function() {
                     deferred.resolve(zip); // ignore this error: just logging
                     // deferred.reject(zip); // or we may fail the download
                 } else {
-                    zip.file(project_name + "_picture"+i+"." +file_url[i], data, {binary:true});
+                    zip.file(project_name + "_img"+i+"." +file_url[i], data, {binary:true});
                     
                     //replace src of images in final area
                     var counter=-1  // starts at -1 as spacer counts as picture
@@ -660,7 +660,7 @@ $(document).ready(function() {
                     
                     $("#Final img").each(function() {  
                         counter++;
-                        $(this).attr('src', project_name + '_picture' +counter + '.jpg');
+                        $(this).attr('src', project_name + '_img' +counter + '.jpg');
                     });    
                   
                     
