@@ -43,7 +43,8 @@ $(window).load(function() {
         //var currentTr = $('.tableRow_' + currentNumber)[0].outerHTML;
         var currentTr = $('.rbsTable .tableRow_' + currentNumber)[0].outerHTML;
 
-        $(currentTr).clone().appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        //$(currentTr).clone().appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        $(currentTr).clone().appendTo($('#myTable > tbody')).append('<i class="fa fa-trash-o remove" title="Remove section"></i>');
 
         //disable all links in build table
         $('#myTable a').click(function(e) {
@@ -58,7 +59,8 @@ $(window).load(function() {
     $('#addSpace').on('click', function() {
 
         var spacerTr = $('#spacerTr > tbody').html();
-        $(spacerTr).appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        //$(spacerTr).appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        $(spacerTr).appendTo($('#myTable > tbody')).append('<i class="fa fa-trash-o remove" ></i>');
 
     });
 
@@ -110,14 +112,16 @@ $(window).load(function() {
                         
                         // Set image buttons, including the name
                         // of the buttons defined in customImageButtons.
-                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'close'],
+                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'replaceImage', 'close'],
 
+                        imageResize: false,
+                        
                         // Define custom image buttons.
                         customImageButtons: {
        
                             // Close button with image button.
                             close: {
-                                title: 'close',
+                                title: 'Close',
                                 icon: {
                                     // Recommended size: 40 x 35.
                                     type: 'font',

@@ -5,6 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>HTML Builder</title>
 
+    
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -63,6 +64,19 @@
     <div id="wrapper">
 
 
+        <header>
+            Email Template Builder
+            
+            <div class="responsive">
+                Test responsiveness:
+                <i class="fa fa-mobile"></i>
+                <i class="fa fa-tablet"></i>
+                <i class="fa fa-desktop"></i>
+            </div>
+            
+        </header>
+        
+        
         <section class="tool_panel">
             <div class="tool blocks">
                 <i class="fa fa-cube"></i>
@@ -76,7 +90,10 @@
                 <i class="fa fa-link"></i>
                 <h2>Link Editor</h2>
             </div>
-            
+            <div class="tool download">
+                <i class="fa fa-download"></i>
+                <h2>Preview and Download</h2>
+            </div>
         </section>
 
         <section class="expanded_pane blocks">
@@ -222,26 +239,42 @@
             </form>
         </section>
 
+        <section class="expanded_pane download">
+        
+            <section id="Tools">
+                
+                <!--<button id="Action">Test HTML</button>-->
+                
+                <button id="Target">Add</button>
+
+                <button id="Result">Result me</button>
+
+                <button id="closeEditor">Close Editor</button>
+
+                <button id="downloadHTML">download HTML</button>
+                <!--<div class="editorTest"></div>-->
+
+                <input id="project_name" type="text" value="project_name" onclick="this.value=''" placeholder="Insert project name">
+
+            </section>
+            
+            
+            
+
+            
+        </section>
+        
+        
+        
         <div id="Remove"></div>
 
 
         <!--Tools (hidden WiP)-->
-        <section id="Tools">
-            <button id="Action">Test HTML</button>
+        
 
-            <button id="Target">Add</button>
-
-            <button id="Result">Result me</button>
-
-            <button id="closeEditor">Close Editor</button>
-            
-            <button id="downloadHTML">download HTML</button>
-            <!--<div class="editorTest"></div>-->
-            
-            <input id="project_name" type="text" value="project_name" onclick="this.value=''" placeholder="Insert project name">
-        </section>
-
-
+        
+        
+        
 
         <!--Render section-->
         <section id="Render">
@@ -252,12 +285,11 @@
                 </table>
             </div>
 
-            <div id="Final">
+            <div id="Final" align="center">
                 <table class="Result"></table>
             </div>
 
         </section>
-
 
 
         <div class="clear"></div>
@@ -312,16 +344,25 @@ JSZipUtils.getBinaryContent("http://images.gigatdst.com/uploads/", function (err
        
 
         
-        $("#Render").resizable({
-            handles       : 'e,w',
-            animate: true, 
+        $("#").resizable({
+            /*handles       : 'e,w',*/
+            animate: false, 
             resize        : function (event,ui){
-                ui.position.left = ui.originalPosition.left;
+                /*ui.position.left = ui.originalPosition.left;
                 ui.size.width    = ( ui.size.width
                                     - ui.originalSize.width )*2
-                + ui.originalSize.width;
+                + ui.originalSize.width;*/
+                /*ui.size.width = ui.originalSize.width;*/
             }
         });
+
+        /*Responsive layout testing (header icons)*/
+        $('').on('click', function(){
+            
+        });
+
+
+
     </script>
     <script src="js/HTML_ui.js"></script>
     <script type="text/javascript" src="js/builder2.js"></script>

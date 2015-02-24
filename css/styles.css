@@ -8,7 +8,7 @@ body {
   height: 100%;
 }
 body {
-  background-color: #ffffff;
+  background-color: #a7a7a7;
   overflow: hidden;
 }
 #wrapper {
@@ -60,13 +60,14 @@ button {
   border-color: #616dfa;
 }
 #Render {
-  float: right;
+  /*float:right;*/
+  margin: 0 auto;
   width: 50%;
   background: #fff;
   padding: 40px;
   box-sizing: border-box;
   max-width: 900px!important;
-  height: 100%;
+  height: 90%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -90,8 +91,8 @@ button {
   border: 1px solid #eee;
 }
 #Render #myTable .remove {
-  color: red;
-  font-weight: bold;
+  color: #A9181F;
+  font-weight: normal;
   display: block;
   position: relative;
   right: 0px;
@@ -131,8 +132,9 @@ button {
   border: solid red 2px;
 }
 .remove {
-  color: red;
-  font-weight: bold;
+  color: #A9181F;
+  /*font-weight: bold;*/
+  font-size: 25px;
 }
 .result {
   border: solid red 2px;
@@ -157,6 +159,6 @@ button {
   display: block;
   clear: both;
   margin-bottom: 15px;
-  color: #000;
+  /*color: #000;*/
 }
 /*Old Styles*/
