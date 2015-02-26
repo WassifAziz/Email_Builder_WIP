@@ -78,6 +78,13 @@ $(window).load(function() {
         //Remove unwanted elements
         $('.Result .remove').remove();
 
+        $('#Final, #Shadowbox').fadeIn(500);
+        //$('#Shadowbox').fadeIn(500);
+        
+    });
+    
+    $('#Shadowbox span, #Shadowbox button').on('click', function(){
+        $('#Final, #Shadowbox').fadeOut(500);
     });
 
 

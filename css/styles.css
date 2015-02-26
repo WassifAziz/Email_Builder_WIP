@@ -62,14 +62,18 @@ button {
 #Render {
   /*float:right;*/
   margin: 0 auto;
-  width: 50%;
+  /*width:50%;*/
   background: #fff;
   padding: 40px;
   box-sizing: border-box;
-  max-width: 900px!important;
+  /*max-width: 900px!important;*/
   height: 90%;
   overflow-y: scroll;
   overflow-x: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 #Render #Compose {
   margin-bottom: 20px;

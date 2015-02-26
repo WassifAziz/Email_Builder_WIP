@@ -127,6 +127,21 @@ input[type="text"] {
 #Tools {
   width: 100%;
   box-sizing: border-box;
+  padding: 0px;
+}
+#Tools button,
+#Tools input {
+  min-width: 200px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+#Tools .fa {
+  display: block;
+  font-size: 150px;
+  color: #a7a7a7;
+  margin: 0 auto;
+  text-align: center;
 }
 header {
   width: 100%;
@@ -182,9 +197,10 @@ h1 {
   font-weight: normal;
 }
 h2 {
-  font-size: 16px;
+  font-size: 35px;
   font-weight: normal;
   margin-top: 0px;
+  font-family: "univers_lt_std47LtCn";
 }
 /*New styles*/
 .tool_panel {
@@ -216,7 +232,7 @@ h2 {
   color: #8299a1;
 }
 .tool_panel .tool h2 {
-  font-size: 13px;
+  font-size: 15px;
 }
 .expanded_pane {
   float: left;
@@ -237,6 +253,25 @@ h2 {
   animation-fill-mode: both;
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
+}
+.expanded_pane button,
+.expanded_pane input[type="button"] {
+  min-width: 200px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+}
+.expanded_pane .ms-choice {
+  padding: 20px;
+}
+.expanded_pane .ms-choice:hover {
+  background: white;
+}
+.expanded_pane .ms-choice > span.placeholder,
+.expanded_pane .ms-choice > div,
+.expanded_pane .ms-choice > span {
+  top: 10px;
 }
 .expanded_pane h2.title {
   text-align: center;
@@ -266,6 +301,8 @@ h2 {
   height: 40px;
   width: 150px;
   float: left;
+  cursor: pointer;
+  border-radius: 4px;
 }
 .expanded_pane #bg_color_selector div,
 .expanded_pane #font_color_selector div {
@@ -273,18 +310,20 @@ h2 {
   line-height: 40px;
   font-size: 12px;
   text-align: center;
+  border-radius: 4px;
 }
 .expanded_pane #bg_removebtn {
-  /*color: black;*/
-  height: 24px;
-  margin-bottom: 25px;
-  float: left;
-  margin-bottom: 0px;
-  font-size: 12px;
-  line-height: 5px;
-  width: 150px;
+  /*color: black;
+        height: 24px;
+        margin-bottom: 25px;
+        float: left;
+        margin-bottom: 0px;
+        font-size: 12px;
+        line-height: 5px;
+        width: 150px;
+        margin-top:15px;
+        font-size:15px;*/
   margin-top: 15px;
-  font-size: 15px;
 }
 .preview_area {
   background-color: #a7a7a7;
@@ -295,7 +334,9 @@ h2 {
   margin: 0 auto;
   color: #ffffff;
 }
-.expanded_pane .font_styles input,
+.expanded_pane .font_styles {
+  /*input,*/
+}
 .expanded_pane .font_styles select {
   width: 100%;
   margin-bottom: 15px;
@@ -306,11 +347,13 @@ h2 {
   font-size: 12px;
 }
 .expanded_pane .font_styles span {
-  font-size: 14px;
+  font-size: 15px;
+  margin-right: 45px;
+  font-family: "univers_lt_std47LtCn";
 }
 .expanded_pane .font_styles input[type="radio"] {
   display: inline;
-  width: auto;
+  /*width: auto;*/
 }
 .expanded_pane .custom_styles h3 {
   display: inline-block;
@@ -347,4 +390,153 @@ h2 {
     opacity: 1;
     transform: translateX(0);
   }
+}
+/*Custom form elements*/
+/*Pure CSS dropdown styling*/
+.custom_drop {
+  width: 152px;
+  height: 40px;
+  background: #ffffff url("../images/stoptober--drop_icon.png") 90% 50% no-repeat;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  clip: rect;
+}
+select::-ms-expand {
+  display: none;
+}
+/*Fixes for Firefox*/
+/*Firefox newest update fix*/
+/*wrap select boxes inside a div with the following class*/
+.custom-select,
+select {
+  width: 152px;
+  height: 40px;
+  display: inline;
+  position: relative;
+  color: #444;
+  border-radius: 4px;
+  font-family: "univers_lt_std47LtCn";
+}
+.custom-select:before,
+select:before {
+  display: block;
+  content: "";
+  background: url("../images/stoptober--drop_icon.png") 70% 52% no-repeat;
+  height: 40px;
+  width: 30px;
+  /*padding: 0 0.625em;*/
+  padding: 5px 25px 9px;
+  border-radius: 8px;
+  position: absolute;
+  top: -22px;
+  right: 0px;
+  width: 1em;
+  z-index: -1;
+}
+:-moz-any(.custom-select):before {
+  background-color: #e8e8e8;
+  /* this is necessary for overcome the caret default browser */
+  pointer-events: none;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  */
+  z-index: 1;
+  /* this is necessary for overcome the pseudo element */
+}
+/*new STYLED checkboxes (will revert to default in IE8-)*/
+input[type="checkbox"]:not(old),
+input[type="radio"]:not(old) {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 50;
+  vertical-align: middle;
+}
+input[type="checkbox"]:not(old) + label,
+input[type="radio"]:not(old) + label {
+  display: inline-block;
+  margin-left: -30px;
+  padding-left: 30px;
+  background: url(../images/stoptober--checkbox.gif) no-repeat 0 0;
+  line-height: 30px;
+  /*text-indent: -99999px;*/
+  margin-bottom: 5px;
+  position: absolute;
+  font-size: 0px;
+}
+input[type="checkbox"]:not(old) + label:before,
+input[type="radio"]:not(old) + label:before {
+  content: "\f10c";
+  font-family: FontAwesome;
+  opacity: 1;
+  font-size: 25px;
+  left: 0px;
+  position: absolute;
+  color: #a7a7a7;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+input[type="checkbox"]:not(old):checked + label,
+input[type="radio"]:not(old):checked + label {
+  background-position: 0 -30px;
+}
+input[type="checkbox"]:not(old):checked + label:before,
+input[type="radio"]:not(old):checked + label:before {
+  content: "\f192";
+  color: #d74145;
+}
+input[type="checkbox"]:not(old) + label:before {
+  content: "\f096";
+}
+input[type="checkbox"]:not(old):checked + label:before {
+  content: "\f046";
+}
+/*Email preview styles*/
+#Final {
+  position: absolute;
+  left: 50%;
+  margin-left: -475px;
+  top: 0px;
+  width: 950px;
+  z-index: 3000;
+  background: white;
+  overflow-y: scroll;
+  height: 100%;
+  display: none;
+}
+#Shadowbox {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 2900;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#Shadowbox span {
+  font-size: 85px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+#Shadowbox span:after {
+  font-family: FontAwesome;
+  content: "\f00d";
+  color: white;
+}
+#Shadowbox button {
+  position: absolute;
+  top: 20px;
+  right: 15px;
 }

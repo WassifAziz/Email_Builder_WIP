@@ -240,7 +240,7 @@ $(document).ready(function() {
     $(".custom_styles > .heading").click(function() { 
         // assumes element with id='button'
         $(".custom_css").toggle();
-        $(".fa").toggleClass("fa-arrow-up fa-arrow-down");
+        $(this).find(".fa").toggleClass("fa-arrow-up fa-arrow-down");
     });
 
     

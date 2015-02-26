@@ -63,6 +63,16 @@
 
     <div id="wrapper">
 
+        <div id="Shadowbox">
+            <!--<span title="Close Preview"></span>-->
+            <button>Close</button>
+        </div>
+        <section id="Preview">  
+            <div id="Final" align="center">
+                <table class="Result"></table>
+            </div>
+        </section>
+        
 
         <header>
             Email Template Builder
@@ -127,7 +137,7 @@
         </section>
 
         <section class="expanded_pane styles">
-            <h2 class="title"></h2>
+            <h2 class="title">Styles</h2>
 
             <select multiple="multiple" id="select_class">
                 <!--<option value="WF">full width</option>
@@ -241,21 +251,25 @@
 
         <section class="expanded_pane download">
         
+            <h2 class="title">Preview and download</h2>
+            
             <section id="Tools">
                 
                 <!--<button id="Action">Test HTML</button>-->
                 
-                <button id="Target">Add</button>
+                <input id="project_name" type="text" value="project_name" onclick="this.value=''" placeholder="Insert project name">
+                
+                <button id="Target" style="display:none;">Add</button>
 
-                <button id="Result">Result me</button>
+                <button id="Result">Preview</button>
 
-                <button id="closeEditor">Close Editor</button>
+                <!--<button id="closeEditor">Close Editor</button>-->
 
-                <button id="downloadHTML">download HTML</button>
+                <button id="downloadHTML">Download HTML</button>
                 <!--<div class="editorTest"></div>-->
 
-                <input id="project_name" type="text" value="project_name" onclick="this.value=''" placeholder="Insert project name">
-
+                <i class="fa fa-download"></i>
+                
             </section>
             
             
@@ -263,8 +277,6 @@
 
             
         </section>
-        
-        
         
         <div id="Remove"></div>
 
@@ -285,9 +297,6 @@
                 </table>
             </div>
 
-            <div id="Final" align="center">
-                <table class="Result"></table>
-            </div>
 
         </section>
 
@@ -322,7 +331,36 @@
             selectAll: false
         });
 
-        
+        //Custom form elements
+        //Get labels attached to radio and checkbox inputs
+        if (!$.support.leadingWhitespace) {
+            //IE7 and 8 stuff
+        }
+        else {
+            $('input[type=checkbox]:not(old), input[type=radio]:not(old)').after('<label>Value</label>');
+        }
+
+
+
+        //responsive test buttons
+        $('.responsive .fa-mobile').on('click', function(){
+            console.log('mobile'); 
+            $('#Render').innerWidth(320);
+            //$('#Render').animate({width: '320px'}, 500);
+        });
+
+        $('.responsive .fa-tablet').on('click', function(){
+            console.log('tablet'); 
+            $('#Render').innerWidth(768);
+            //$('#Render').animate({width: '768px'}, 500);
+        });
+
+        $('.responsive .fa-desktop').on('click', function(){
+            console.log('desktop'); 
+            //$('#Render').css('width', '100%');
+            $('#Render').width('');
+            //$('#Render').animate({width: '100%'}, 500);
+        });
         
         /*var zip = new JSZip();
         var email = $('.Result').html();
