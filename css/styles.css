@@ -148,7 +148,7 @@ button {
 }
 /*Multiple Select classes*/
 .ms-parent {
-  display: block!important;
+  /*display: block!important;*/
   width: 100%!important;
   margin-top: 25px!important;
 }

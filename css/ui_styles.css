@@ -262,6 +262,9 @@ h2 {
   margin-bottom: 15px;
   padding: 10px 20px;
 }
+.expanded_pane .ms-parent {
+  display: block;
+}
 .expanded_pane .ms-choice {
   padding: 20px;
 }

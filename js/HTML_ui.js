@@ -663,7 +663,7 @@ $(document).ready(function() {
                         $(this).attr('src', project_name + '_img' +counter + '.jpg');
                     });    
                   
-                     
+                    $("#Final").attr('style',''); 
                     
                     //save contents of final area and custom css into zip
                     var email = $('#Final')[0].outerHTML;
