@@ -18,42 +18,11 @@
     <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
 
 
-    <style type='text/css'>
-        .body {
-            background: #666!important;
-            background-color: #666!important;
-        }
-        .sortable {
-            height: 300px;
-            background: #ccc;
-            overflow: auto;
-        }
-        .toggle {
-            background: green;
-            margin: 3px 0 0 0;
-        }
-        #droparea {
-            float: right;
-            background: white;
-            min-height: 440px;
-        }
-        #draggable {
-            float: left;
-        }
-        <!--inline edit css--> .ui-state-hover {
-            background-color: #ffc
-        }
-        .inlineEdit-placeholder {
-            font-style: italic;
-            color: #555;
-        }
-    </style>
+    
     
     <style type='text/css' id="custom_styles">
-        .testClass{
-            color:red;
-        }
-        </style>
+        @media only screen and (max-width: 640px) {.table{width:320px!important;} }
+    </style>
 
 </head>
 
@@ -69,7 +38,7 @@
         </div>
         <section id="Preview">  
             <div id="Final" align="center">
-                <table class="Result"></table>
+                <table class="Result table" cellspacing="0" cellpadding="0" align="center" class="table" width="620"></table>
             </div>
         </section>
         
@@ -292,7 +261,7 @@
         <section id="Render">
 
             <div id="Compose">
-                <table cellpadding="0" cellspacing="0" border="0" width="620" align="center" style="background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 620px;" bgcolor="#FFFFFF" id="myTable">
+                <table cellpadding="0" cellspacing="0" border="0" width="620" align="center" style="background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 620px;" bgcolor="#FFFFFF" id="myTable" class="table" width="620">
                     <tbody></tbody>
                 </table>
             </div>

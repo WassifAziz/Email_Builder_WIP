@@ -119,7 +119,7 @@ $(window).load(function() {
                         
                         // Set image buttons, including the name
                         // of the buttons defined in customImageButtons.
-                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'replaceImage', 'close'],
+                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'replaceImage', 'close', 'imgStyle'],
 
                         imageResize: false,
                         
@@ -145,6 +145,25 @@ $(window).load(function() {
 
                                     // Save HTML in undo stack.
                                     this.saveUndoStep();
+                                },
+                                refresh: function () { }
+                            },
+                            
+                            imgStyle: {
+                                title: 'Image Class',
+                                icon: {
+                                    type: 'font',
+                                    value: 'fa fa-pencil'
+                                },
+                                callback: function () {
+                                    // Do something here ...
+                                    var imgClass = $('span.f-img-editor img').attr('class');
+                                    
+                                    //var imgClassPrompt  = prompt('Write img classes', 'class')
+                                    
+                                    //imgClassPrompt
+                                    
+                                    alert(imgClass);
                                 },
                                 refresh: function () { }
                             }
