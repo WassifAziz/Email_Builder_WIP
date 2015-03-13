@@ -478,61 +478,33 @@ $(document).ready(function() {
         var mediaQuery640 = '@media only screen and (max-width: 640px) {'
         var closeBracket = '}'
         // used CSS classes
-        var responsiveTable = '.table{width:320px;}'
-        var db = '.db{display:block;}'
-        var wf = '.wf{width:100%;}'
-        
+        var responsiveTable = 'body[yahoo] .table{width:320px;}'
         
         $('#custom_styles').html("");
         
         var selectedValues = $("#select_class option:checked").val();
-        
-        /*var arr =".wf{width:100%!important;} - .db{display:block!important;} - .hide{display:none!important;}";
-        arr = arr.split('-');
-        arr = $(arr).map(String.prototype.trim);
-
-        var selected_styles_class = [], selected_styles_style = [];
-
-        for(var i=0; i<arr.length; i++){
-            selected_styles_class[i] = arr[i].split("{")[0];
-            selected_styles_style[i] = arr[i];
-        }*/
-
         var val = [];
-        
         var selected_styles_class = [], selected_styles_style = [];
         
         $("#select_class option:checked").each(function (i) {
-
-            val[i] = $(this).val();
+            
+            var body_yahoo = "body[yahoo] ";
+            var value = $(this).val();
+            
+            val[i] = body_yahoo + value;
             var new_class = val.join(' ');
-            //var new_class = val.join(' ');
-
-            addedClass = new_class
             
             console.log(new_class);
-            
+             
             $('#custom_styles').html(new_class); 
-            
-            /*if ($.inArray($(this).val(), selected_styles_class) != -1) {
-                var area = $(this).index();
-
-                //$('#custom_styles').append("." + selected_styles_style[area]);
-                $('#custom_styles').append(selected_styles_style[area]);
-
-                //add classes to head tag
-            };*/
-            
-            
-            
-            
+              
         });
 
         var styles_data = $( "#custom_styles" ).html();
 
         
-        arr =  $.unique(styles_data.split('.'));
-        styles_data = arr.join(".");
+//        arr =  $.unique(styles_data.split('.'));
+//        styles_data = arr.join(".");
 
         //insert custom styles into media query in head
         $('#custom_styles').replaceWith(

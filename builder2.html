@@ -21,7 +21,9 @@
     
     
     <style type='text/css' id="custom_styles">
-        @media only screen and (max-width: 640px) {.table{width:320px!important;} }
+        @media only screen and (max-width: 640px) {
+            body[yahoo].table{width:320px!important;} 
+        }
     </style>
 
 </head>
@@ -111,8 +113,8 @@
             <select multiple="multiple" id="select_class">
                 <!--<option value="WF">full width</option>
 <option value="hide">hide</option>-->
-                <option value="wf">width full</option>
-                <option value="db">display block</option>
+                <option value=".wf{width:100%!important}">width full</option>
+                <option value=".db{display:block!important}">display block</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
