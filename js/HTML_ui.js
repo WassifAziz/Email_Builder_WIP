@@ -7,6 +7,17 @@ var fileExtension
 var file_url 
 var imgLinks
 var splitLinks
+var new_class
+var value
+var val_no_yahoo
+var new_class_without_yahoo 
+var customStyleTag
+var custompreviewTag 
+var mediaQuery640 
+var closeBracket 
+var responsiveTable 
+var responsiveTablePreview 
+
 
 //All metatags and tags needed for an email to work properly in broswer (and to work correctlyif ever reopened with Dreamweaver!)
 var metaTags = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml">        <head>        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />          <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />         <meta name="format-detection" content="telephone=no" />                    <meta http-equiv="X-UA-Compatible" content="IE=edge" />                        <meta name="viewport" content="width=device-width">              <title>CHANGE THE TITLE</title>';
@@ -27,6 +38,15 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
+    
+    //change table class if container is resized
+//    $(".fa-mobile").click(function () { 
+//        $('#myTable').addClass('table');
+//    });
+//    $(".fa-desktop").click(function () { 
+//        $('#myTable').removeClass('table');
+//    });
+    
     //get project name
     $('#project_name').on('input', function() {
         project_name = $(this).val();
@@ -474,16 +494,19 @@ $(document).ready(function() {
     $('#select_class').on("change",function() {  
 
         /*Native CSS variables*/
-        var customStyleTag = '<style type="text/css" id="custom_styles">'
-        var mediaQuery640 = '@media only screen and (max-width: 640px) {'
-        var closeBracket = '}'
+        customStyleTag = '<style type="text/css" id="custom_styles">'
+        custompreviewTag = '<style type="text/css" id="media_styles">'
+        mediaQuery640 = '@media only screen and (max-width: 640px) {'
+        closeBracket = '}'
         // used CSS classes
-        var responsiveTable = 'body[yahoo] .table{width:320px;}'
+        responsiveTable = 'body[yahoo] .table{width:320px;}'
+        responsiveTablePreview = '.table{width:320px!important;}'
         
         $('#custom_styles').html("");
         
         var selectedValues = $("#select_class option:checked").val();
         var val = [];
+        var val_no_yahoo = [];
         var selected_styles_class = [], selected_styles_style = [];
         
         $("#select_class option:checked").each(function (i) {
@@ -492,12 +515,16 @@ $(document).ready(function() {
             var value = $(this).val();
             
             val[i] = body_yahoo + value;
-            var new_class = val.join(' ');
+            new_class = val.join(' ');
+            
+            //for preview styles
+            val_no_yahoo[i] = value;
+            new_class_without_yahoo = val_no_yahoo.join(' ');
             
             console.log(new_class);
-             
+          
             $('#custom_styles').html(new_class); 
-              
+            
         });
 
         var styles_data = $( "#custom_styles" ).html();
@@ -511,12 +538,34 @@ $(document).ready(function() {
 
             customStyleTag + mediaQuery640 + responsiveTable + styles_data + closeBracket
 
-        );
-
+        ); 
+        
+        var preview_styles_data = styles_data
+        preview_styles_data.replace('body[yahoo]','');
+        
+        //onclick mobile preview, add all checked classes into 'media_styles' css
+        $('.fa-mobile').on('click', function() {   
+        
+            $('#media_styles').replaceWith(
+                custompreviewTag + responsiveTablePreview + new_class_without_yahoo
+            );
+        
+            //end all styles with important
+//            (new_class_without_yahoo).toString().replace(';','!important;');
+    
+        });
+        
 
     });
 
+    //when clicking desktop or tablet, remove all classes inside 'media_styles'
+    $('.fa-tablet, .fa-desktop').on('click', function() {  
 
+        $('#media_styles').replaceWith(
+            custompreviewTag
+        );
+    });
+    
 
     ///DOWNLOAD ALL IMAGES FROM URL
     //http://lifelongprogrammer.blogspot.co.uk/2014/06/using-jszip-to-download-multiple-remote-images.html
