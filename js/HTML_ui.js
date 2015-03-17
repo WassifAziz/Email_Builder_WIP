@@ -36,7 +36,6 @@ $(window).load(function() {
 
 
 
-
 $(document).ready(function() {
 
     
@@ -47,8 +46,6 @@ $(document).ready(function() {
 //    $(".fa-desktop").click(function () { 
 //        $('#myTable').removeClass('table');
 //    });
-    
-
     
     //get project name
     $('#project_name').on('input', function() {
@@ -365,8 +362,6 @@ $(document).ready(function() {
                     $(".text_align_buttons").css("display", "block");
                     $(".td_Valign_buttons").css("display", "block");
 
-                
-
 
                     //add class. the edit styles input targets this class
                     $('td').removeClass("targeted_styles_for_edit");
@@ -478,16 +473,6 @@ $(document).ready(function() {
                 });//END TD FUNCTION
 
 
-<<<<<<< HEAD
-
-
-                });//END TD FUNCTION
-             
-                
-      
-                
-=======
->>>>>>> origin/master
             }
         });
     });
@@ -631,16 +616,11 @@ $(document).ready(function() {
                     deferred.resolve(zip); // ignore this error: just logging
                     // deferred.reject(zip); // or we may fail the download
                 } else {
-<<<<<<< HEAD
-                    zip.file(project_name + "_img_"+i+"." +file_url[i], data, {binary:true});
-                    
-=======
 
                     zip.file( file_url[i], data, {binary:true}
 
                             );
 
->>>>>>> origin/master
                     //replace src of images in final area
   
 
@@ -655,14 +635,9 @@ $(document).ready(function() {
                     });    
 
                   
-<<<<<<< HEAD
-                    
-                    
-=======
                       
 
                     $("#Final").attr('style',''); 
->>>>>>> origin/master
                     //save contents of final area and custom css into zip
                     var email = $('#Final')[0].outerHTML;
                     var tableStyle = $('#custom_styles')[0].outerHTML;
