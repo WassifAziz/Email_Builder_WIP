@@ -298,8 +298,13 @@ h2 {
   float: left;
   display: inline-block;
 }
+.expanded_pane #container_table_color {
+  float: left;
+  display: inline-block;
+}
 .expanded_pane #bg_color_selector,
-.expanded_pane #font_color_selector {
+.expanded_pane #font_color_selector,
+.expanded_pane #container_table_color_selector {
   background-color: #ffffff;
   height: 40px;
   width: 150px;
@@ -308,7 +313,8 @@ h2 {
   border-radius: 4px;
 }
 .expanded_pane #bg_color_selector div,
-.expanded_pane #font_color_selector div {
+.expanded_pane #font_color_selector div,
+.expanded_pane #container_table_color_selector div {
   height: 40px;
   line-height: 40px;
   font-size: 12px;

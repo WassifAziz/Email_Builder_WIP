@@ -17,13 +17,14 @@ var mediaQuery640
 var closeBracket 
 var responsiveTable 
 var responsiveTablePreview 
+var rgb
 
 
 //All metatags and tags needed for an email to work properly in broswer (and to work correctlyif ever reopened with Dreamweaver!)
 var metaTags = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml">        <head>        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />          <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />         <meta name="format-detection" content="telephone=no" />                    <meta http-equiv="X-UA-Compatible" content="IE=edge" />                        <meta name="viewport" content="width=device-width">              <title>CHANGE THE TITLE</title>';
 
 //open body tag
-var openBody = '<body>';
+var openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:#ffffff; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="#ffffff" text="#333333" yahoo="fix">';
 //Close body tag
 var closeBody = '</body></html>'; 
 
@@ -38,6 +39,16 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
+    //convert rgb to hex colour
+    function rgb2hex(rgb){
+        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        return "#" +
+            ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+            ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+            ("0" + parseInt(rgb[3],10).toString(16)).slice(-2);
+    }
+
+    
     
     //change table class if container is resized
 //    $(".fa-mobile").click(function () { 
@@ -285,6 +296,31 @@ $(document).ready(function() {
             $('#bg_color_selector div').html('&nbsp');
             $('#font_color_selector div').css('backgroundColor', '#' + hex);
             $('.targeted_styles_for_edit').css('color', '#' + hex);
+        }
+    });
+        
+    //http://wowmotty.blogspot.co.uk/2009/06/convert-jquery-rgb-output-to-hex-color.html
+    
+    $('#container_table_color_selector').ColorPicker({
+        color: '#0000ff',
+        onShow: function (colpkr) {
+            $(colpkr).fadeIn(500);
+            return false;
+        },
+        onHide: function (colpkr) {
+            $(colpkr).fadeOut(500);
+            return false;
+        },
+        onChange: function (hsb, hex, rgb) {
+            $('#bg_color_selector div').html('&nbsp');
+            $('#container_table_color_selector div').css('backgroundColor', '#' + hex);
+            $('#myTable').attr('bgcolor', '#' + hex);
+            $('#myTable').css('backgroundColor', '#' + hex);
+            
+            //convert outputted rgb colour to hex
+//            var colour = $('#myTable').css('backgroundColor');
+//            console.log(rgb2hex(colour));
+            
         }
     });
 
