@@ -15,7 +15,7 @@
 
         $el.parent().hide();
         var elWidth = $el.css("width");
-        $el.parent().show();
+        //$el.parent().show(); //this forces the parent element to show
         if (elWidth=="0px") {elWidth = $el.outerWidth()+20}
 
         this.$el = $el.hide();

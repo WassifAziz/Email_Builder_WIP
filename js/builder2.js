@@ -43,7 +43,8 @@ $(window).load(function() {
         //var currentTr = $('.tableRow_' + currentNumber)[0].outerHTML;
         var currentTr = $('.rbsTable .tableRow_' + currentNumber)[0].outerHTML;
 
-        $(currentTr).clone().appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        //$(currentTr).clone().appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        $(currentTr).clone().appendTo($('#myTable > tbody')).append('<i class="fa fa-trash-o remove" title="Remove section"></i>');
 
         //disable all links in build table
         $('#myTable a').click(function(e) {
@@ -58,7 +59,8 @@ $(window).load(function() {
     $('#addSpace').on('click', function() {
 
         var spacerTr = $('#spacerTr > tbody').html();
-        $(spacerTr).appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        //$(spacerTr).appendTo($('#myTable > tbody')).append('<div class="remove">X</div>');
+        $(spacerTr).appendTo($('#myTable > tbody')).append('<i class="fa fa-trash-o remove" ></i>');
 
     });
 
@@ -76,6 +78,13 @@ $(window).load(function() {
         //Remove unwanted elements
         $('.Result .remove').remove();
 
+        $('#Final, #Shadowbox').fadeIn(500);
+        //$('#Shadowbox').fadeIn(500);
+        
+    });
+    
+    $('#Shadowbox span, #Shadowbox button').on('click', function(){
+        $('#Final, #Shadowbox').fadeOut(500);
     });
 
 
@@ -85,7 +94,7 @@ $(window).load(function() {
 
             
             //destroy editable area when clicking ok on image inline edit
-            $(".fr-p-bttn.f-ok").on('click', function() { 
+            $(".froala-popup.froala-image-editor-popup > div.f-image-alt > button").on('click', function() { 
 
                 $('.froala-box').editable("destroy");    
             });
@@ -105,19 +114,19 @@ $(window).load(function() {
                         countCharacters: false,
                         placeholder: '',  
                         paragraphy: false,
-                        
-                        
-                        
+  
                         // Set image buttons, including the name
                         // of the buttons defined in customImageButtons.
-                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'close'],
+                        imageButtons: ['display', 'align', 'linkImage', 'info', 'removeImage', 'replaceImage', 'close', 'imgStyle'],
 
+                        imageResize: false,
+                        
                         // Define custom image buttons.
                         customImageButtons: {
        
                             // Close button with image button.
                             close: {
-                                title: 'close',
+                                title: 'Close',
                                 icon: {
                                     // Recommended size: 40 x 35.
                                     type: 'font',
@@ -134,6 +143,25 @@ $(window).load(function() {
 
                                     // Save HTML in undo stack.
                                     this.saveUndoStep();
+                                },
+                                refresh: function () { }
+                            },
+                            
+                            imgStyle: {
+                                title: 'Image Class',
+                                icon: {
+                                    type: 'font',
+                                    value: 'fa fa-pencil'
+                                },
+                                callback: function () {
+                                    // Do something here ...
+                                    var imgClass = $('span.f-img-editor img').attr('class');
+                                    
+                                    //var imgClassPrompt  = prompt('Write img classes', 'class')
+                                    
+                                    //imgClassPrompt
+                                    
+                                    alert(imgClass);
                                 },
                                 refresh: function () { }
                             }
