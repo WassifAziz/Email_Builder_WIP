@@ -5,6 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>HTML Builder</title>
 
+    
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -17,42 +18,15 @@
     <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
 
 
-    <style type='text/css'>
-        .body {
-            background: #666!important;
-            background-color: #666!important;
-        }
-        .sortable {
-            height: 300px;
-            background: #ccc;
-            overflow: auto;
-        }
-        .toggle {
-            background: green;
-            margin: 3px 0 0 0;
-        }
-        #droparea {
-            float: right;
-            background: white;
-            min-height: 440px;
-        }
-        #draggable {
-            float: left;
-        }
-        <!--inline edit css--> .ui-state-hover {
-            background-color: #ffc
-        }
-        .inlineEdit-placeholder {
-            font-style: italic;
-            color: #555;
-        }
+    <style type='text/css' id="media_styles">
+       
     </style>
     
     <style type='text/css' id="custom_styles">
-        .testClass{
-            color:red;
+        @media only screen and (max-width: 640px) {
+            body[yahoo].table{width:320px!important;} 
         }
-        </style>
+    </style>
 
 </head>
 
@@ -62,7 +36,30 @@
 
     <div id="wrapper">
 
+        <div id="Shadowbox">
+            <!--<span title="Close Preview"></span>-->
+            <button>Close</button>
+        </div>
+        <section id="Preview">  
+            <div id="Final" align="center">
+                <table class="Result table" cellspacing="0" cellpadding="0" align="center" class="table" width="620"></table>
+            </div>
+        </section>
+        
 
+        <header>
+            Email Template Builder
+            
+            <div class="responsive">
+                Test responsiveness:
+                <i class="fa fa-mobile"></i>
+                <i class="fa fa-tablet"></i>
+                <i class="fa fa-desktop"></i>
+            </div>
+            
+        </header>
+        
+        
         <section class="tool_panel">
             <div class="tool blocks">
                 <i class="fa fa-cube"></i>
@@ -76,7 +73,10 @@
                 <i class="fa fa-link"></i>
                 <h2>Link Editor</h2>
             </div>
-            
+            <div class="tool download">
+                <i class="fa fa-download"></i>
+                <h2>Preview and Download</h2>
+            </div>
         </section>
 
         <section class="expanded_pane blocks">
@@ -108,15 +108,15 @@
             </div>
 
         </section>
-
+        
         <section class="expanded_pane styles">
-            <h2 class="title"></h2>
+            <h2 class="title">Styles</h2>
 
             <select multiple="multiple" id="select_class">
                 <!--<option value="WF">full width</option>
 <option value="hide">hide</option>-->
-                <option value="wf">width full</option>
-                <option value="db">display block</option>
+                <option value=".wf{width:100%!important}">width full</option>
+                <option value=".db{display:block!important}">display block</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
@@ -128,7 +128,7 @@
             <div class="retrieved_styles"></div>
             <div class="font_styles">
 
-                
+
                 <div id="bg_color">
                     <H3>Background Colour</H3>
                     <div id="bg_color_selector">
@@ -142,14 +142,14 @@
                         <div style="background-color: #0000ff">&nbsp;</div>
                     </div>
                 </div>
-         
+
 
                 <div class="clear"></div>
 
                 <button id="bg_removebtn" type="button">Remove BG</button>
 
                 <div class="clear"></div>
-                
+
                 <H3>Font Size</H3>
                 <!--                <input type="text" id="font_size" disabled>-->
                 <select id="font_size">
@@ -222,42 +222,56 @@
             </form>
         </section>
 
+        <section class="expanded_pane download">
+        
+            <h2 class="title">Preview and download</h2>
+            
+            <section id="Tools">
+                
+                <!--<button id="Action">Test HTML</button>-->
+                
+                <input id="project_name" type="text" value="project_name" onclick="this.value=''" placeholder="Insert project name">
+                
+                <button id="Target" style="display:none;">Add</button>
+
+                <button id="Result">Preview</button>
+
+                <!--<button id="closeEditor">Close Editor</button>-->
+
+                <button id="downloadHTML">Download HTML</button>
+                <!--<div class="editorTest"></div>-->
+
+                <i class="fa fa-download"></i>
+                
+            </section>
+            
+            
+            
+
+            
+        </section>
+        
         <div id="Remove"></div>
 
 
         <!--Tools (hidden WiP)-->
-        <section id="Tools">
-            <button id="Action">Test HTML</button>
+        
 
-            <button id="Target">Add</button>
-
-            <button id="Result">Result me</button>
-
-            <button id="closeEditor">Close Editor</button>
-            
-            <button id="downloadHTML">download HTML</button>
-            <!--<div class="editorTest"></div>-->
-            
-            <input id="project_name" type="text" value="project_name" onclick="this.value=''" placeholder="Insert project name">
-        </section>
-
-
+        
+        
+        
 
         <!--Render section-->
-        <section id="Render">
+        <section id="Render" data-squery="max-width:640px=table">
 
-            <div id="Compose">
-                <table cellpadding="0" cellspacing="0" border="0" width="620" align="center" style="background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 620px;" bgcolor="#FFFFFF" id="myTable">
+            <div id="Compose" >
+                <table cellpadding="0" cellspacing="0" border="0" width="620" align="center" style="background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 620px;" bgcolor="#FFFFFF" id="myTable" width="620" data-squery="max-width:640px=table">
                     <tbody></tbody>
                 </table>
             </div>
 
-            <div id="Final">
-                <table class="Result"></table>
-            </div>
 
         </section>
-
 
 
         <div class="clear"></div>
@@ -290,7 +304,36 @@
             selectAll: false
         });
 
-        
+        //Custom form elements
+        //Get labels attached to radio and checkbox inputs
+        if (!$.support.leadingWhitespace) {
+            //IE7 and 8 stuff
+        }
+        else {
+            $('input[type=checkbox]:not(old), input[type=radio]:not(old)').after('<label>Value</label>');
+        }
+
+
+
+        //responsive test buttons
+        $('.responsive .fa-mobile').on('click', function(){
+            console.log('mobile'); 
+            $('#Render').innerWidth(320);
+            //$('#Render').animate({width: '320px'}, 500);
+        });
+
+        $('.responsive .fa-tablet').on('click', function(){
+            console.log('tablet'); 
+            $('#Render').innerWidth(768);
+            //$('#Render').animate({width: '768px'}, 500);
+        });
+
+        $('.responsive .fa-desktop').on('click', function(){
+            console.log('desktop'); 
+            //$('#Render').css('width', '100%');
+            $('#Render').width('');
+            //$('#Render').animate({width: '100%'}, 500);
+        });
         
         /*var zip = new JSZip();
         var email = $('.Result').html();
@@ -312,21 +355,31 @@ JSZipUtils.getBinaryContent("http://images.gigatdst.com/uploads/", function (err
        
 
         
-        $("#Render").resizable({
-            handles       : 'e,w',
-            animate: true, 
+        $("#").resizable({
+            /*handles       : 'e,w',*/
+            animate: false, 
             resize        : function (event,ui){
-                ui.position.left = ui.originalPosition.left;
+                /*ui.position.left = ui.originalPosition.left;
                 ui.size.width    = ( ui.size.width
                                     - ui.originalSize.width )*2
-                + ui.originalSize.width;
+                + ui.originalSize.width;*/
+                /*ui.size.width = ui.originalSize.width;*/
             }
         });
+
+        /*Responsive layout testing (header icons)*/
+        $('').on('click', function(){
+            
+        });
+
+
+
     </script>
     <script src="js/HTML_ui.js"></script>
     <script type="text/javascript" src="js/builder2.js"></script>
     <script type="text/javascript" src="js/colorpicker.js"></script>
-
+    <script type="text/javascript" src="js/responsive-containers.js"></script>
+    
 </body>
 
 </html>

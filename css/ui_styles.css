@@ -1,10 +1,178 @@
 @import "normalize.css";
+/*HTML email template builder by WAziz and BB!*/
+/*We need to put a Konami code there somewhere, in the meantime here's a dinosaur*/
+/*
+$$$$$$$$$$$$$$$$$$$$$$$$$$$**""""`` ````"""#*R$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$*""      ..........      `"#$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$#"    .ue@$$$********$$$$Weu.   `"*$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$#"   ue$$*#""              `""*$$No.   "R$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$P"   u@$*"`                         "#$$o.  ^*$$$$$$$$$$$$$$
+$$$$$$$$$$$P"  .o$R"               . .WN.           "#$Nu  `#$$$$$$$$$$$$
+$$$$$$$$$$"  .@$#`       'ou  .oeW$$$$$$$$W            "$$u  "$$$$$$$$$$$
+$$$$$$$$#   o$#`      ueL  $$$$$$$$$$$$$$$$ku.           "$$u  "$$$$$$$$$
+$$$$$$$"  x$P`        `"$$u$$$$$$$$$$$$$$"#$$$L            "$o   *$$$$$$$
+$$$$$$"  d$"        #$u.2$$$$$$$$$$$$$$$$  #$$$Nu            $$.  #$$$$$$
+$$$$$"  @$"          $$$$$$$$$$$$$$$$$$$$k  $$#*$$u           #$L  #$$$$$
+$$$$"  d$         #Nu@$$$$$$$$$$$$$$$$$$"  x$$L #$$$o.         #$c  #$$$$
+$$$F  d$          .$$$$$$$$$$$$$$$$$$$$N  d$$$$  "$$$$$u        #$L  #$$$
+$$$  :$F        ..`$$$$$$$$$$$$$$$$$$$$$$$$$$$`    R$$$$$eu.     $$   $$$
+$$!  $$        . R$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.   @$$$$$$$$Nu   '$N  `$$
+$$  x$"        Re$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$uu@"``"$$$$$$$i   #$:  $$
+$E  $$       c 8$$$$$$$$$$$$$$$$$$$$$G(   ``^*$$$$$$$WW$$$$$$$$N   $$  4$
+$~ :$$N. tL i)$$$$$$$$$$$$$$$$$$$$$$$$$N       ^#R$$$$$$$$$$$$$$$  9$  '$
+$  t$$$$u$$W$$$$$$$$$$$$$$!$$$$$$$$$$$$$&       . c?"*$$$R$$$$$$$  '$k  $
+$  @$$$$$$$$$$$$$$$$$$$$"E F!$$$$$$$$$$."        +."@\* x .""*$$"   $B  $
+$  $$$$$$$$$$$$$$$$"$)#F     $$$$$$$$$$$           `  -d>x"*=."`    $$  $
+$  $$$$$$$$$$?$$R'$ `#d$""    #$$$$$$$$$ > .                "       $$  $
+$  $$$$$$$($$@$"` P *@$.@#"!    "*$$$$$$$L!.                        $$  $
+$  9$$$$$$$L#$L  ! " <$$`          "*$$$$$NL:"z  f                  $E  $
+$> ?$$$$ $$$b$^      .$c .ueu.        `"$$$$b"x"#  "               x$!  $
+$k  $$$$N$ "$$L:$oud$$$` d$ .u.         "$$$$$o." #f.              $$   $
+$$  R$""$$o.$"$$$$""" ue$$$P"`"c          "$$$$$$Wo'              :$F  t$
+$$: '$&  $*$$u$$$$u.ud$R" `    ^            "#*****               @$   $$
+$$N  #$: E 3$$$$$$$$$"                                           d$"  x$$
+$$$k  $$   F *$$$$*"                                            :$P   $$$
+$$$$  '$b                                                      .$P   $$$$
+$$$$b  `$b                                                    .$$   @$$$$
+$$$$$N  "$N                                                  .$P   @$$$$$
+$$$$$$N  '*$c                                               u$#  .$$$$$$$
+$$$$$$$$.  "$N.                                           .@$"  x$$$$$$$$
+$$$$$$$$$o   #$N.                                       .@$#  .@$$$$$$$$$
+$$$$$$$$$$$u  `#$Nu                                   u@$#   u$$$$$$$$$$$
+$$$$$$$$$$$$$u   "R$o.                             ue$R"   u$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$o.  ^#$$bu.                     .uW$P"`  .u$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$u   `"#R$$Wou..... ....uueW$$*#"   .u@$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$Nu.    `""#***$$$$$***"""`    .o$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$eu..               ...ed$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$NWWeeeeedW@$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+*/
 /*---------------------------------------------------
     LESS Elements 0.9
   ---------------------------------------------------*/
+/* Mixins */
+.clear {
+  width: 100%;
+  display: block;
+  clear: both;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+img {
+  behavior: url(iepngfix.htc);
+}
+/*Colour mixins*/
+/*font-face*/
+@font-face {
+  font-family: "univers_lt_std47LtCn";
+  src: url('../fonts/universltstd-lightcn-webfont.eot');
+  src: url('../fonts/universltstd-lightcn-webfont.eot?#iefix') format('eot'), url('../fonts/universltstd-lightcn-webfont.woff') format('woff'), url('../fonts/universltstd-lightcn-webfont.otf') format('opentype'), url('../fonts/iuniversltstd-lightcn-webfont.ttf') format('truetype'), url('../fonts/universltstd-lightcn-webfont.svg#univers_lt_std47LtCn') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "univers_lt_std67BdCn";
+  src: url('../fonts/universltstd-boldcn-webfont.eot');
+  src: url('../fonts/universltstd-boldcn-webfont.eot?#iefix') format('eot'), url('../fonts/universltstd-boldcn-webfont.woff') format('woff'), url('../fonts/universltstd-boldcn-webfont.otf') format('opentype'), url('../fonts/universltstd-boldcn-webfont.ttf') format('truetype'), url('../fonts/universltstd-boldcn-webfont.svg#univers_lt_std67BdCn') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+.font_unvers {
+  font-family: "univers_lt_std47LtCn";
+}
+.font_unvers_bold {
+  font-family: "univers_lt_std67BdCn";
+}
+/*Overall styles*/
 body {
-  background-color: #ededed;
+  background-color: #a7a7a7;
   height: 100%;
+  /*overflow-y: scroll; */
+}
+button,
+input[type="button"] {
+  padding: 10px 20px;
+  font-family: "univers_lt_std47LtCn";
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: #d74145;
+  border: none;
+  color: white;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+button:hover,
+input[type="button"]:hover {
+  background: #a9181f;
+  color: white;
+}
+input[type="text"] {
+  color: #3d423c;
+  width: 100%;
+  max-width: 350px;
+  border: 0px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#Tools {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px;
+}
+#Tools button,
+#Tools input {
+  min-width: 200px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+#Tools .fa {
+  display: block;
+  font-size: 150px;
+  color: #a7a7a7;
+  margin: 0 auto;
+  text-align: center;
+}
+header {
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 25px 130px;
+  color: #404040;
+  background: url('../images/logo-GIG.png') no-repeat #ffffff;
+  background-size: 100px auto;
+  background-position: 15px -5px;
+  font-family: "univers_lt_std47LtCn";
+  font-size: 40px;
+  /*border-bottom: 1px solid @dst_dark_gray;*/
+  -webkit-box-shadow: 0px 7px 10px 0px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow: 0px 7px 10px 0px rgba(50, 50, 50, 0.3);
+  box-shadow: 0px 7px 10px 0px rgba(50, 50, 50, 0.3);
+  position: relative;
+  left: 0px;
+  z-index: 300;
+}
+header .responsive {
+  width: 48%;
+  float: right;
+  font-size: 20px;
+  vertical-align: middle;
+}
+header .responsive i {
+  font-size: 50px;
+  margin-left: 35px;
+  display: inline-block;
+  cursor: pointer;
 }
 #wrapper {
   position: absolute;
@@ -13,9 +181,6 @@ body {
   left: 0;
   right: 0;
   background-color: #a7a7a7;
-}
-button {
-  padding: 10px 20px;
 }
 .clear {
   display: block;
@@ -32,16 +197,17 @@ h1 {
   font-weight: normal;
 }
 h2 {
-  font-size: 16px;
+  font-size: 35px;
   font-weight: normal;
   margin-top: 0px;
+  font-family: "univers_lt_std47LtCn";
 }
 /*New styles*/
 .tool_panel {
-  max-width: 100px;
+  max-width: 120px;
   width: 100%;
   height: 100%;
-  background-color: #A9181F;
+  background-color: #404040;
   color: #fff;
   float: left;
   position: fixed;
@@ -57,6 +223,16 @@ h2 {
 .tool_panel .tool .fa {
   font-size: 30px;
   margin: 10px 0px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.tool_panel .tool .fa:hover {
+  color: #8299a1;
+}
+.tool_panel .tool h2 {
+  font-size: 15px;
 }
 .expanded_pane {
   float: left;
@@ -64,11 +240,12 @@ h2 {
   width: 100%;
   background-color: #e0e0e0;
   color: #FFF;
-  height: 100%;
+  /*height: 100%;*/
+  height: 90%;
   display: none;
   padding: 20px;
   box-sizing: border-box;
-  margin-left: 100px;
+  margin-left: 120px;
   /*CSS3 animation*/
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -76,6 +253,28 @@ h2 {
   animation-fill-mode: both;
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
+}
+.expanded_pane button,
+.expanded_pane input[type="button"] {
+  min-width: 200px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+}
+.expanded_pane .ms-parent {
+  display: block;
+}
+.expanded_pane .ms-choice {
+  padding: 20px;
+}
+.expanded_pane .ms-choice:hover {
+  background: white;
+}
+.expanded_pane .ms-choice > span.placeholder,
+.expanded_pane .ms-choice > div,
+.expanded_pane .ms-choice > span {
+  top: 10px;
 }
 .expanded_pane h2.title {
   text-align: center;
@@ -105,6 +304,8 @@ h2 {
   height: 40px;
   width: 150px;
   float: left;
+  cursor: pointer;
+  border-radius: 4px;
 }
 .expanded_pane #bg_color_selector div,
 .expanded_pane #font_color_selector div {
@@ -112,16 +313,20 @@ h2 {
   line-height: 40px;
   font-size: 12px;
   text-align: center;
+  border-radius: 4px;
 }
 .expanded_pane #bg_removebtn {
-  color: black;
-  height: 24px;
-  margin-bottom: 25px;
-  float: left;
-  margin-bottom: 0px;
-  font-size: 12px;
-  line-height: 5px;
-  width: 150px;
+  /*color: black;
+        height: 24px;
+        margin-bottom: 25px;
+        float: left;
+        margin-bottom: 0px;
+        font-size: 12px;
+        line-height: 5px;
+        width: 150px;
+        margin-top:15px;
+        font-size:15px;*/
+  margin-top: 15px;
 }
 .preview_area {
   background-color: #a7a7a7;
@@ -132,9 +337,12 @@ h2 {
   margin: 0 auto;
   color: #ffffff;
 }
-.expanded_pane .font_styles input,
+.expanded_pane .font_styles {
+  /*input,*/
+}
 .expanded_pane .font_styles select {
   width: 100%;
+  margin-bottom: 15px;
 }
 .expanded_pane .font_styles h3 {
   color: #000000!important;
@@ -142,11 +350,13 @@ h2 {
   font-size: 12px;
 }
 .expanded_pane .font_styles span {
-  font-size: 14px;
+  font-size: 15px;
+  margin-right: 45px;
+  font-family: "univers_lt_std47LtCn";
 }
 .expanded_pane .font_styles input[type="radio"] {
   display: inline;
-  width: auto;
+  /*width: auto;*/
 }
 .expanded_pane .custom_styles h3 {
   display: inline-block;
@@ -183,4 +393,153 @@ h2 {
     opacity: 1;
     transform: translateX(0);
   }
+}
+/*Custom form elements*/
+/*Pure CSS dropdown styling*/
+.custom_drop {
+  width: 152px;
+  height: 40px;
+  background: #ffffff url("../images/stoptober--drop_icon.png") 90% 50% no-repeat;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  clip: rect;
+}
+select::-ms-expand {
+  display: none;
+}
+/*Fixes for Firefox*/
+/*Firefox newest update fix*/
+/*wrap select boxes inside a div with the following class*/
+.custom-select,
+select {
+  width: 152px;
+  height: 40px;
+  display: inline;
+  position: relative;
+  color: #444;
+  border-radius: 4px;
+  font-family: "univers_lt_std47LtCn";
+}
+.custom-select:before,
+select:before {
+  display: block;
+  content: "";
+  background: url("../images/stoptober--drop_icon.png") 70% 52% no-repeat;
+  height: 40px;
+  width: 30px;
+  /*padding: 0 0.625em;*/
+  padding: 5px 25px 9px;
+  border-radius: 8px;
+  position: absolute;
+  top: -22px;
+  right: 0px;
+  width: 1em;
+  z-index: -1;
+}
+:-moz-any(.custom-select):before {
+  background-color: #e8e8e8;
+  /* this is necessary for overcome the caret default browser */
+  pointer-events: none;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  */
+  z-index: 1;
+  /* this is necessary for overcome the pseudo element */
+}
+/*new STYLED checkboxes (will revert to default in IE8-)*/
+input[type="checkbox"]:not(old),
+input[type="radio"]:not(old) {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 50;
+  vertical-align: middle;
+}
+input[type="checkbox"]:not(old) + label,
+input[type="radio"]:not(old) + label {
+  display: inline-block;
+  margin-left: -30px;
+  padding-left: 30px;
+  background: url(../images/stoptober--checkbox.gif) no-repeat 0 0;
+  line-height: 30px;
+  /*text-indent: -99999px;*/
+  margin-bottom: 5px;
+  position: absolute;
+  font-size: 0px;
+}
+input[type="checkbox"]:not(old) + label:before,
+input[type="radio"]:not(old) + label:before {
+  content: "\f10c";
+  font-family: FontAwesome;
+  opacity: 1;
+  font-size: 25px;
+  left: 0px;
+  position: absolute;
+  color: #a7a7a7;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+input[type="checkbox"]:not(old):checked + label,
+input[type="radio"]:not(old):checked + label {
+  background-position: 0 -30px;
+}
+input[type="checkbox"]:not(old):checked + label:before,
+input[type="radio"]:not(old):checked + label:before {
+  content: "\f192";
+  color: #d74145;
+}
+input[type="checkbox"]:not(old) + label:before {
+  content: "\f096";
+}
+input[type="checkbox"]:not(old):checked + label:before {
+  content: "\f046";
+}
+/*Email preview styles*/
+#Final {
+  position: absolute;
+  left: 50%;
+  margin-left: -475px;
+  top: 0px;
+  width: 950px;
+  z-index: 3000;
+  background: white;
+  overflow-y: scroll;
+  height: 100%;
+  display: none;
+}
+#Shadowbox {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 2900;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#Shadowbox span {
+  font-size: 85px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+#Shadowbox span:after {
+  font-family: FontAwesome;
+  content: "\f00d";
+  color: white;
+}
+#Shadowbox button {
+  position: absolute;
+  top: 20px;
+  right: 15px;
 }
