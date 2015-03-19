@@ -18,15 +18,12 @@ var closeBracket
 var responsiveTable 
 var responsiveTablePreview 
 var rgb
-
+var body_color
+var openBody
+var closeBody
 
 //All metatags and tags needed for an email to work properly in broswer (and to work correctlyif ever reopened with Dreamweaver!)
 var metaTags = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml">        <head>        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />          <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />         <meta name="format-detection" content="telephone=no" />                    <meta http-equiv="X-UA-Compatible" content="IE=edge" />                        <meta name="viewport" content="width=device-width">              <title>CHANGE THE TITLE</title>';
-
-//open body tag
-var openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:#ffffff; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="#ffffff" text="#333333" yahoo="fix">';
-//Close body tag
-var closeBody = '</body></html>'; 
 
 
 project_name = $('#project_name').val();
@@ -47,17 +44,6 @@ $(document).ready(function() {
             ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
             ("0" + parseInt(rgb[3],10).toString(16)).slice(-2);
     }
-
-    
-    
-    //change table class if container is resized
-//    $(".fa-mobile").click(function () { 
-//        $('#myTable').addClass('table');
-//    });
-//    $(".fa-desktop").click(function () { 
-//        $('#myTable').removeClass('table');
-//    });
-    
     //get project name
     $('#project_name').on('input', function() {
         project_name = $(this).val();
@@ -231,8 +217,6 @@ $(document).ready(function() {
                 $('#bg_color_selector div').css('backgroundColor', '#FFFFFF' );
         }
 
-
-
         //retrieve the inline CSS from clicked TD and add to textarea under custom styles
         custom_styles =  retrieved_styles;
         $(".custom_css").val($(custom_styles).val());
@@ -245,10 +229,6 @@ $(document).ready(function() {
             var style = $('.targeted_styles_for_edit').attr('style');
             $(".targeted_styles_for_edit").attr('style', custom_css);
         });
-
-
-
-
 
     });//END TD FUNCTION
 
@@ -316,15 +296,21 @@ $(document).ready(function() {
             $('#container_table_color_selector div').css('backgroundColor', '#' + hex);
             $('#myTable').attr('bgcolor', '#' + hex);
             $('#myTable').css('backgroundColor', '#' + hex);
+            body_color =  hex;
+            
             
             //convert outputted rgb colour to hex
 //            var colour = $('#myTable').css('backgroundColor');
 //            console.log(rgb2hex(colour));
             
+            
+            //open body tag
+            openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:#' + body_color + '; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="#' + body_color + '" text="#333333" yahoo="fix">';
+            //Close body tag
+            closeBody = '</body></html>'; 
+               
         }
     });
-
-
 
 
     /////////////when input styles are edited, update the HTML////////////////
@@ -372,13 +358,10 @@ $(document).ready(function() {
     $("#bg_removebtn").on('click', function () {   
         $('.targeted_styles_for_edit').removeAttr("bgcolor");
     });
-
+    
+    
+    
     //OBSERVER (Beta)
-
-
-
-
-
     var list = document.getElementById("myTable");
 
     var MutationObserver = window.MutationObserver ||
@@ -398,7 +381,6 @@ $(document).ready(function() {
                     $(".text_align_buttons").css("display", "block");
                     $(".td_Valign_buttons").css("display", "block");
 
-
                     //add class. the edit styles input targets this class
                     $('td').removeClass("targeted_styles_for_edit");
                     $(this).addClass("targeted_styles_for_edit");
@@ -408,7 +390,6 @@ $(document).ready(function() {
 
                     //retrieve inline styles from clicked td and covert to HTML
                     retrieved_styles = $(this).attr('style'); 
-
 
                     //split by colon
                     styles_array = retrieved_styles
@@ -491,12 +472,9 @@ $(document).ready(function() {
                             $('#bg_color_selector div').css('backgroundColor', '#FFFFFF' );
                     }
 
-
-
                     //retrieve the inline CSS from clicked TD and add to textarea under custom styles
                     custom_styles =  retrieved_styles;
                     $(".custom_css").text(custom_styles);
-
 
                     //detect any text input change on custom css textarea and updated styles accordingly
                     $(".custom_css").bind('input propertychange', function(){
@@ -658,20 +636,15 @@ $(document).ready(function() {
                             );
 
                     //replace src of images in final area
-  
-
                     var counter=-1  // starts at -1 as spacer counts as picture
-
 
                     $("#Final img").each(function() {  
                         counter++;
 
                         var noImgFolder = $(this).attr('src').split('/');
                         $(this).attr('src', noImgFolder[1]);
-                    });    
-
+                    });   
                   
-                      
 
                     $("#Final").attr('style',''); 
                     //save contents of final area and custom css into zip
