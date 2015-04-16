@@ -243,6 +243,26 @@ $(document).ready(function() {
 
 
     ///COLOUR PICKER AREA
+    $('#body_color_selector').ColorPicker({
+        color: '#ffffff',
+        onShow: function (colpkr) {
+            $(colpkr).fadeIn(500);
+            return false;
+        },
+        onHide: function (colpkr) {
+            $(colpkr).fadeOut(500);
+            return false;
+        },
+        onChange: function (hsb, hex, rgb) {
+            //            hex = ("#fefefe");
+            //            console.log(hex);
+            $('#body_color_selector div').html('&nbsp');
+            $('#body_color_selector div').css('backgroundColor', '#' + hex);
+            $('#Render, #Final').attr("bgcolor", '#' + hex);
+            $('#Render, #Final').css('backgroundColor', '#' + hex);
+        }
+    });
+    
     $('#bg_color_selector').ColorPicker({
         color: '#ffffff',
         onShow: function (colpkr) {
