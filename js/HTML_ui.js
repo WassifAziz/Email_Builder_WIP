@@ -312,7 +312,7 @@ $(document).ready(function() {
             $(colpkr).fadeOut(500);
             return false;
         },
-        onChange: function (hsb, hex, rgb, body_color) {
+        onChange: function (hsb, hex, rgb) {
             $('#bg_color_selector div').html('&nbsp');
             $('#container_table_color_selector div').css('backgroundColor', '#' + hex);
             $('#myTable').attr('bgcolor', '#' + hex);
@@ -635,7 +635,7 @@ $(document).ready(function() {
             // see FileSaver.js
             saveAs(content, project_name + ".zip");
         }
-        function addToZip(zip, imgLink, i, body_color) {
+        function addToZip(zip, imgLink, i ) {
             var deferred = $.Deferred();
             JSZipUtils.getBinaryContent(imgLink, function (err, data) {
                 if(err) {
