@@ -1,26 +1,26 @@
-var retrieved_styles
-var styles_array
-var custom_styles
-var project_name
-var file_url
-var fileExtension
-var file_url 
-var imgLinks
-var splitLinks
-var new_class
-var value
-var val_no_yahoo
-var new_class_without_yahoo 
-var customStyleTag
-var custompreviewTag 
-var mediaQuery640 
-var closeBracket 
-var responsiveTable 
-var responsiveTablePreview 
-var rgb
-var body_color
-var openBody
-var closeBody
+var retrieved_styles;
+var styles_array;
+var custom_styles;
+var project_name;
+var file_url;
+var fileExtension;
+var file_url;
+var imgLinks;
+var splitLinks;
+var new_class;
+var value;
+var val_no_yahoo;
+var new_class_without_yahoo ;
+var customStyleTag;
+var custompreviewTag;
+var mediaQuery640;
+var closeBracket;
+var responsiveTable;
+var responsiveTablePreview;
+var rgb;
+var body_color;
+var openBody;
+var closeBody;
 
 //All metatags and tags needed for an email to work properly in broswer (and to work correctlyif ever reopened with Dreamweaver!)
 var metaTags = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml">        <head>        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />          <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />         <meta name="format-detection" content="telephone=no" />                    <meta http-equiv="X-UA-Compatible" content="IE=edge" />                        <meta name="viewport" content="width=device-width">              <title>CHANGE THE TITLE</title>';
@@ -311,7 +311,7 @@ $(document).ready(function() {
             $(colpkr).fadeOut(500);
             return false;
         },
-        onChange: function (hsb, hex, rgb) {
+        onChange: function (hsb, hex, rgb, body_color) {
             $('#bg_color_selector div').html('&nbsp');
             $('#container_table_color_selector div').css('backgroundColor', '#' + hex);
             $('#myTable').attr('bgcolor', '#' + hex);
@@ -324,14 +324,16 @@ $(document).ready(function() {
 //            console.log(rgb2hex(colour));
             
             
-            //open body tag
-            openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:#' + body_color + '; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="#' + body_color + '" text="#333333" yahoo="fix">';
-            //Close body tag
-            closeBody = '</body></html>'; 
-               
+            return body_color;
+      
         }
+        
+       
     });
 
+    
+
+    
 
     /////////////when input styles are edited, update the HTML////////////////
 
@@ -641,7 +643,7 @@ $(document).ready(function() {
             // see FileSaver.js
             saveAs(content, project_name + ".zip");
         }
-        function addToZip(zip, imgLink, i) {
+        function addToZip(zip, imgLink, i, body_color) {
             var deferred = $.Deferred();
             JSZipUtils.getBinaryContent(imgLink, function (err, data) {
                 if(err) {
@@ -670,6 +672,13 @@ $(document).ready(function() {
                     //save contents of final area and custom css into zip
                     var email = $('#Final')[0].outerHTML;
                     var tableStyle = $('#custom_styles')[0].outerHTML;
+                    
+                    //open body tag
+                    openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:#' + body_color + '; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="#' + body_color + '" text="#333333" yahoo="fix">';
+                    //Close body tag
+                    closeBody = '</body></html>'; 
+
+                    
                     var styledEmail = metaTags + tableStyle + openBody + email + closeBody;
                     zip.file("index.html", styledEmail);
 
