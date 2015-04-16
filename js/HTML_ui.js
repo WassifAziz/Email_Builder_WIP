@@ -634,7 +634,7 @@ $(document).ready(function() {
             var content = zip.generate({type:"blob"});
             // see FileSaver.js
             saveAs(content, project_name + ".zip");
-        }
+        } 
         function addToZip(zip, imgLink, i ) {
             var deferred = $.Deferred();
             JSZipUtils.getBinaryContent(imgLink, function (err, data) {
@@ -673,6 +673,16 @@ $(document).ready(function() {
 
                     
                     var styledEmail = metaTags + tableStyle + openBody + email + closeBody;
+                    
+                    
+                    //replace all RGB values with HEX
+                    styledEmail = styledEmail.replace(
+                        /\brgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/g,
+                        function($0, $1, $2, $3) {
+                            return "#" + ("0"+Number($1).toString(16)).substr(-2) + ("0"+Number($2).toString(16)).substr(-2) + ("0"+Number($3).toString(16)).substr(-2);
+                        })
+                     
+                    
                     zip.file("index.html", styledEmail);
 
                     deferred.resolve(zip);
@@ -684,9 +694,28 @@ $(document).ready(function() {
         downloadAllImages();
 
     }); //end download function
-
-
-
+   
+    
+    
+    //CREATING FUNCTION TO TRY AND GET FONT COLOURS CHAGNED FROM RGB TO HEX
+    
+//    function rgb2hex(rgb){
+//        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+//        return "#" +
+//            ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+//            ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+//            ("0" + parseInt(rgb[3],10).toString(16)).slice(-2);
+//    }
+//    
+//    
+//    $('#Final td').each(function(){
+//
+//        document.write(rgb2hex($(this).css('color')));
+//        
+//        alert($(this).css('color'));
+//        
+//    });
+   
 
 });//DOCUMENT READY END
 
