@@ -302,6 +302,7 @@ $(document).ready(function() {
     //http://wowmotty.blogspot.co.uk/2009/06/convert-jquery-rgb-output-to-hex-color.html
     
     $('#container_table_color_selector').ColorPicker({
+
         color: '#0000ff',
         onShow: function (colpkr) {
             $(colpkr).fadeIn(500);
@@ -317,22 +318,13 @@ $(document).ready(function() {
             $('#myTable').attr('bgcolor', '#' + hex);
             $('#myTable').css('backgroundColor', '#' + hex);
             body_color =  hex;
-            
-            
-            //convert outputted rgb colour to hex
-//            var colour = $('#myTable').css('backgroundColor');
-//            console.log(rgb2hex(colour));
-            
-            
-            return body_color;
-      
+ 
         }
         
        
     });
 
     
-
     
 
     /////////////when input styles are edited, update the HTML////////////////
@@ -672,9 +664,10 @@ $(document).ready(function() {
                     //save contents of final area and custom css into zip
                     var email = $('#Final')[0].outerHTML;
                     var tableStyle = $('#custom_styles')[0].outerHTML;
+                    var retrieved_body_color = $('#Render').attr('bgcolor');
                     
                     //open body tag
-                    openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:#' + body_color + '; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="#' + body_color + '" text="#333333" yahoo="fix">';
+                    openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:' + retrieved_body_color + '; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="' + retrieved_body_color + '" text="#333333" yahoo="fix">';
                     //Close body tag
                     closeBody = '</body></html>'; 
 
