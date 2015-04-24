@@ -36,8 +36,7 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
-    //set bg colour to white as default
-    $('#Render').attr('bgcolor', '#ffffff')
+
     
     //convert rgb to hex colour
     function rgb2hex(rgb){
@@ -320,6 +319,7 @@ $(document).ready(function() {
             $('#container_table_color_selector div').css('backgroundColor', '#' + hex);
             $('#myTable').attr('bgcolor', '#' + hex);
             $('#myTable').css('backgroundColor', '#' + hex);
+
             body_color =  hex;
  
         }
@@ -667,8 +667,16 @@ $(document).ready(function() {
                     //save contents of final area and custom css into zip
                     var email = $('#Final')[0].outerHTML;
                     var tableStyle = $('#custom_styles')[0].outerHTML;
+
                     var retrieved_body_color = $('#Render').attr('bgcolor');
                     
+                    if(typeof retrieved_body_color === 'undefined'){
+                        retrieved_body_color = "#ffffff";
+                    }
+                    else{
+                    
+                    };
+                     
                     //open body tag
                     openBody = '<body style="width:100% !important; min-height:1000px; color:#000001; background:' + retrieved_body_color + '; font-family:Arial,Helvetica,sans-serif;" alink="#FFFFFF" link="#FFFFFF" bgcolor="' + retrieved_body_color + '" text="#333333" yahoo="fix">';
                     //Close body tag
