@@ -36,6 +36,9 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
+    //set bg colour to white as default
+    $('#Render').attr('bgcolor', '#ffffff')
+    
     //convert rgb to hex colour
     function rgb2hex(rgb){
         rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
